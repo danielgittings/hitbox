@@ -22,6 +22,10 @@ const Grid = styled.div`
     &.on {
       background-color: red;
       cursor: pointer;
+
+      &:hover {
+        background-color: darkred;
+      }
     }
   }
 `;

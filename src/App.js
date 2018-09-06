@@ -307,19 +307,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { !this.state.playing && this.state.unplayed ?
+        { (!this.state.playing && this.state.unplayed) &&
           <React.Fragment>
             <Title startGame={this.startGame} />
-          </React.Fragment> : ''
+          </React.Fragment>
         }
 
-        { !this.state.playing && !this.state.unplayed ?
+        { (!this.state.playing && !this.state.unplayed) &&
           <React.Fragment>
             <Summary
               startGame={this.startGame}
               previousScores={this.state.previousScores}
               points={this.state.points} />
-          </React.Fragment> : ''
+          </React.Fragment>
         }
 
         { this.state.playing &&

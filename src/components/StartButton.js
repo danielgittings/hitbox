@@ -10,6 +10,7 @@ const StartGameButton = styled.button`
   background-color: #0088cc;
   color: white;
   cursor: pointer;
+  width: 200px;
 `;
 
 const StartButton = ({ startGame }) => (
