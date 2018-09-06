@@ -223,8 +223,7 @@ class App extends Component {
 
     if (scores) {
       this.setState({
-        previousScores: [ ...scores ],
-        unplayed: false
+        previousScores: [ ...scores ]
       });
     }
   }
