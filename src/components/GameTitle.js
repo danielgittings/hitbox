@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const MainTitle = styled.h1`
   text-align: center;
+  font-family: sans-serif;
   font-size: 5rem;
 `;
 
