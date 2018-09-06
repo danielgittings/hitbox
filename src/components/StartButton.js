@@ -13,7 +13,7 @@ const StartGameButton = styled.button`
 `;
 
 const StartButton = ({ startGame }) => (
-  <StartGameButton onClick={ startGame}>
+  <StartGameButton onClick={ startGame }>
     Start
   </StartGameButton>
 );

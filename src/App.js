@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import TimerBar from './TimerBar';
-import GameGrid from './GameGrid';
-import StartButton from './StartButton';
-import PreviousScores from './PreviousScores';
-import HighScore from './HighScore';
-import FinalScore from './FinalScore';
-import GameTitle from './GameTitle';
+import Title from './states/title/Title';
+import Summary from './states/summary/Summary';
+import Playing from './states/playing/Playing';
 
 class App extends Component {
   state = {
@@ -212,8 +208,9 @@ class App extends Component {
       { id: 200, on: false },
     ],
     points: 0,
-    secondsLeft: 30,
+    secondsLeft: 3,
     playing: false,
+    unplayed: true,
     gameComplete: false,
     scoreVisible: true,
     interval: null,
@@ -226,7 +223,8 @@ class App extends Component {
 
     if (scores) {
       this.setState({
-        previousScores: [ ...scores ]
+        previousScores: [ ...scores ],
+        unplayed: false
       });
     }
   }
@@ -274,7 +272,7 @@ class App extends Component {
     this.setState({
       playing: true,
       gameComplete: false,
-      secondsLeft: 30,
+      secondsLeft: 3,
       points: 0
     });
     this.startTimer();
@@ -296,6 +294,7 @@ class App extends Component {
       clearInterval(this.state.interval);
       this.setState(prevState => ({
         playing: false,
+        unplayed: false,
         gameComplete: true,
         previousScores: [ ...prevState.previousScores, { timestamp: Date.now(), score: this.state.points } ]
       }), this.saveScore);
@@ -309,21 +308,28 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        { this.state.playing ?
+        { !this.state.playing && this.state.unplayed ?
           <React.Fragment>
-            <TimerBar secondsLeft={this.state.secondsLeft} />
-            <GameGrid cells={this.state.grid} clicked={this.clicked} />
+            <Title startGame={this.startGame} />
           </React.Fragment> : ''
         }
 
-        { !this.state.playing ?
+        { !this.state.playing && !this.state.unplayed ?
           <React.Fragment>
-            <GameTitle title="Clickermahgigger" />
-            { this.state.gameComplete > 0 ? <FinalScore points={this.state.points} /> : '' }
-            <StartButton startGame={this.startGame} />
-            <PreviousScores previousScores={this.state.previousScores} />
-            <HighScore previousScores={this.state.previousScores} />
+            <Summary
+              startGame={this.startGame}
+              previousScores={this.state.previousScores}
+              points={this.state.points} />
           </React.Fragment> : ''
+        }
+
+        { this.state.playing &&
+          <React.Fragment>
+            <Playing
+              secondsLeft={this.state.secondsLeft}
+              cells={this.state.grid}
+              clicked={this.clicked} />
+          </React.Fragment>
         }
       </div>
     );
