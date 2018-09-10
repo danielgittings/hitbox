@@ -1,10 +1,10 @@
 import React from 'react';
 
-const PreviousScores = ({ previousScores }) => (
+const PreviousScores = ({ scores }) => (
   <React.Fragment>
     <h4>Previous scores</h4>
     <ul>
-      { previousScores.reverse().map(score =>
+      { scores.reverse().map(score =>
         <li key={score.timestamp}>{score.score}</li>
       )}
     </ul>
