@@ -12,8 +12,9 @@ const Summary = ({ scores, startGame }) => (
       <GameTitle title="Clicktangles"/>
       <StartButton startGame={startGame} buttonText={'Play again'} />
       <FinalScore scores={scores} />
-      <HighScore scores={scores} />
+
       { scores.length > 1 &&
+        <HighScore scores={scores} />
         <PreviousScores scores={scores} />
       }
     </Centraliser>
