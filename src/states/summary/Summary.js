@@ -10,10 +10,12 @@ const Summary = ({ scores, startGame }) => (
   <React.Fragment>
     <Centraliser>
       <GameTitle title="Clicktangles"/>
-      <StartButton startGame={startGame} />
+      <StartButton startGame={startGame} buttonText={'Play again'} />
       <FinalScore scores={scores} />
       <HighScore scores={scores} />
-      <PreviousScores scores={scores} />
+      { scores.length > 1 &&
+        <PreviousScores scores={scores} />
+      }
     </Centraliser>
   </React.Fragment>
 );

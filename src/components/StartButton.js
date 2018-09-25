@@ -13,9 +13,9 @@ const StartGameButton = styled.button`
   width: 200px;
 `;
 
-const StartButton = ({ startGame }) => (
+const StartButton = ({ startGame, buttonText }) => (
   <StartGameButton onClick={ startGame }>
-    Start
+    {buttonText}
   </StartGameButton>
 );
 
