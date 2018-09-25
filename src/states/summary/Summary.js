@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import HighScore from '../../components/HighScore';
@@ -14,8 +14,10 @@ const Summary = ({ scores, startGame }) => (
       <FinalScore scores={scores} />
 
       { scores.length > 1 &&
-        <HighScore scores={scores} />
-        <PreviousScores scores={scores} />
+        <Fragment>
+          <HighScore scores={scores} />
+          <PreviousScores scores={scores} />
+        </Fragment>
       }
     </Centraliser>
   </React.Fragment>
