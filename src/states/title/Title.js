@@ -7,7 +7,7 @@ const Title = ({ startGame }) => (
   <React.Fragment>
     <Centraliser>
       <GameTitle title="Clicktangles"/>
-      <StartButton startGame={startGame} />
+      <StartButton startGame={startGame} buttonText={'Start'} />
     </Centraliser>
   </React.Fragment>
 );
