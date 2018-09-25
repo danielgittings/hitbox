@@ -6,12 +6,12 @@ import PreviousScores from '../../components/PreviousScores';
 import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
 
-const Summary = ({ scores, startGame, points }) => (
+const Summary = ({ scores, startGame }) => (
   <React.Fragment>
     <Centraliser>
       <GameTitle title="Clicktangles"/>
       <StartButton startGame={startGame} />
-      <FinalScore points={points} />
+      <FinalScore scores={scores} />
       <HighScore scores={scores} />
       <PreviousScores scores={scores} />
     </Centraliser>
