@@ -8,10 +8,6 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const Centraliser = ({ children }) => (
-  <Wrapper>
-    { children }
-  </Wrapper>
-);
+const Centraliser = ({ children }) => <Wrapper>{children}</Wrapper>;
 
 export default Centraliser;

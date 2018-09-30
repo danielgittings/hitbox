@@ -9,7 +9,7 @@ const MainTitle = styled.h1`
 
 const GameTitle = ({ title }) => (
   <React.Fragment>
-    <MainTitle>{ title }</MainTitle>
+    <MainTitle>{title}</MainTitle>
   </React.Fragment>
 );
 

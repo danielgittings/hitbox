@@ -233,24 +233,27 @@ class GameGrid extends Component {
       { id: 198, on: false },
       { id: 199, on: false },
       { id: 200, on: false },
-    ]
-  }
+    ],
+  };
 
   clicked = (cell) => {
     if (cell.on) {
       this.props.addPoint();
       this.newCell();
     }
-  }
+  };
 
   newCell = () => {
-    this.setState(prevState => ({
-      ...prevState,
-      grid: prevState.grid.map(cell =>
-        cell.on ? { ...cell, on: false }: cell
-      )
-    }), this.setNextCell);
-  }
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        grid: prevState.grid.map(
+          (cell) => (cell.on ? { ...cell, on: false } : cell),
+        ),
+      }),
+      this.setNextCell,
+    );
+  };
 
   setNextCell = () => {
     const random = this.randomNumber();
@@ -258,25 +261,24 @@ class GameGrid extends Component {
     newGrid[random] = { ...newGrid[random], on: true };
 
     this.setState({
-      grid: newGrid
+      grid: newGrid,
     });
-  }
+  };
 
   randomNumber = () => {
     return Math.floor(Math.random() * (this.state.grid.length - 1)) + 0;
-  }
+  };
 
-  render () {
+  render() {
     return (
       <Grid>
-        {
-          this.state.grid.map(cell =>
-            <div
+        {this.state.grid.map((cell) => (
+          <div
             key={`GameGrid-cell-${cell.id}`}
             onClick={() => this.clicked(cell)}
-            className={cell.on ? 'on' : null} />
-          )
-        }
+            className={cell.on ? 'on' : null}
+          />
+        ))}
       </Grid>
     );
   }

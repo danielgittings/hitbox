@@ -9,16 +9,16 @@ import Centraliser from '../../components/Centraliser';
 const Summary = ({ scores, startGame }) => (
   <React.Fragment>
     <Centraliser>
-      <GameTitle title="Clicktangles"/>
+      <GameTitle title="Clicktangles" />
       <StartButton startGame={startGame} buttonText={'Play again'} />
       <FinalScore scores={scores} />
 
-      { scores.length > 1 &&
+      {scores.length > 1 && (
         <Fragment>
           <HighScore scores={scores} />
           <PreviousScores scores={scores} />
         </Fragment>
-      }
+      )}
     </Centraliser>
   </React.Fragment>
 );
