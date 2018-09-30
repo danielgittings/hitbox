@@ -7,8 +7,8 @@ class App extends Component {
   state = {
     playing: false,
     played: false,
-    scores: []
-  }
+    scores: [],
+  };
 
   componentDidMount = () => {
     // Get scores from localstorage and set into previous
@@ -17,70 +17,73 @@ class App extends Component {
     if (scores) {
       this.setState({
         scores,
-        played: true
+        played: true,
       });
     }
-  }
+  };
 
   addNewScore = (score) => {
-    this.setState(prevState => ({
-      scores: [...prevState.scores, score]
+    this.setState((prevState) => ({
+      scores: [...prevState.scores, score],
     }));
-  }
+  };
 
   startGame = () => {
     this.setState({
       playing: true,
     });
-  }
+  };
 
   endGame = (score) => {
-    this.setState(prevState => ({
-      playing: false,
-      scores: [...prevState.scores, score]
-    }), this.saveScore);
+    this.setState(
+      (prevState) => ({
+        playing: false,
+        scores: [...prevState.scores, score],
+      }),
+      this.saveScore,
+    );
 
     this.markAsPlayed();
-  }
+  };
 
   saveScore = () => {
     localStorage.setItem('previousScores', JSON.stringify(this.state.scores));
-  }
+  };
 
   markAsPlayed = () => {
     this.setState({
-      played: true
+      played: true,
     });
-  }
+  };
 
   render() {
     const { scores, playing, played } = this.state;
 
     return (
       <div className="App">
-        {
-          (!playing && !played) &&
-          <Fragment>
-            <Title startGame={this.startGame} />
-          </Fragment>
-        }
+        {!playing &&
+          !played && (
+            <Fragment>
+              <Title startGame={this.startGame} />
+            </Fragment>
+          )}
 
-        {
-          (!playing && played) &&
-          <Fragment>
-            <Summary scores={scores} startGame={this.startGame} />
-          </Fragment>
-        }
+        {!playing &&
+          played && (
+            <Fragment>
+              <Summary scores={scores} startGame={this.startGame} />
+            </Fragment>
+          )}
 
-        {
-          playing &&
+        {playing && (
           <Fragment>
             <GameScreen
               markAsPlayed={this.markAsPlayed}
               addNewScore={this.addNewScore}
-              endGame={this.endGame} />
+              endGame={this.endGame}
+            />
           </Fragment>
-        }
+        )}
       </div>
     );
   }

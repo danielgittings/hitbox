@@ -1,0 +1,27 @@
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "plugins": ["react"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }],
+    "jsx-a11y/href-no-hash": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "printWidth": 80,
+        "tabWidth": 2,
+        "useTabs": false,
+        "bracketSpacing": true,
+        "trailingComma": "all",
+        "arrowParens": "always"
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ]
+  }
+}

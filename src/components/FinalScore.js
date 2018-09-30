@@ -7,7 +7,7 @@ const FinalScore = ({ scores }) => {
     <React.Fragment>
       <h2>Final score: {mostRecent.score}</h2>
     </React.Fragment>
-  )
+  );
 };
 
 export default FinalScore;

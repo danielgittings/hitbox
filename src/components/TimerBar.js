@@ -17,7 +17,7 @@ const TimerContainer = styled.div`
 
 const TimerBar = ({ secondsLeft }) => (
   <TimerContainer>
-    <h2>{ secondsLeft }</h2>
+    <h2>{secondsLeft}</h2>
   </TimerContainer>
 );
 

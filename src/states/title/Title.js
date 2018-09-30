@@ -6,7 +6,7 @@ import Centraliser from '../../components/Centraliser';
 const Title = ({ startGame }) => (
   <React.Fragment>
     <Centraliser>
-      <GameTitle title="Clicktangles"/>
+      <GameTitle title="Clicktangles" />
       <StartButton startGame={startGame} buttonText={'Start'} />
     </Centraliser>
   </React.Fragment>

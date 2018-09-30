@@ -6,37 +6,40 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 5
-  }
+    secondsLeft: 5,
+  };
 
   componentDidMount = () => {
     const timer = setInterval(this.decrementSeconds, 1000);
     this.setState({
-      timer
+      timer,
     });
-  }
+  };
 
   componentWillUnmount = () => {
     clearInterval(this.state.timer);
-  }
+  };
 
   decrementSeconds = () => {
     if (this.state.secondsLeft > 0) {
-      this.setState(prevState => ({
-        secondsLeft: prevState.secondsLeft - 1
+      this.setState((prevState) => ({
+        secondsLeft: prevState.secondsLeft - 1,
       }));
     } else {
-      this.props.endGame({ timestamp: Date.now(), score: this.state.score});
+      this.props.endGame({ timestamp: Date.now(), score: this.state.score });
     }
-  }
+  };
 
   addPoint = () => {
-    this.setState(prevState => ({
-      score: prevState.score + 1
-    }), this.newCell);
-  }
+    this.setState(
+      (prevState) => ({
+        score: prevState.score + 1,
+      }),
+      this.newCell,
+    );
+  };
 
-  render () {
+  render() {
     return (
       <React.Fragment>
         <TimerBar secondsLeft={this.state.secondsLeft} />
