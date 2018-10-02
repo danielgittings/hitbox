@@ -60,7 +60,7 @@ class App extends Component {
     const { scores, playing, played } = this.state;
 
     return (
-      <div className="App">
+      <div style={{ height: '100%' }}>
         {!playing &&
           !played && (
             <Fragment>
