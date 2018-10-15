@@ -6,16 +6,17 @@ import styled from 'styled-components';
 
 const SubHeading = styled.h3`
   font-size: 30px;
+  margin: 0 0 4rem;
 `;
 
 const Title = ({ startGame }) => (
-  <React.Fragment>
+  <>
     <Centraliser>
-      <GameTitle title="Clicktangles" />
-      <SubHeading>Click the red square. As fast as you can.</SubHeading>
+      <GameTitle title="Clicktangles" primary />
+      <SubHeading>Click the blue square. As fast as you can.</SubHeading>
       <StartButton startGame={startGame} buttonText={'Start'} />
     </Centraliser>
-  </React.Fragment>
+  </>
 );
 
 export default Title;
