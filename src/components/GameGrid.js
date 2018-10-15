@@ -6,13 +6,13 @@ const Grid = styled.div`
   grid-template-columns: repeat(10, 1fr);
   grid-auto-rows: auto;
   grid-template-rows: auto;
-  width: 100vw;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 160px);
   max-height: 100vh;
-  max-width: 100%;
-  margin: auto;
+  max-width: 1000px;
   background-color: #ffffff;
-  grid-gap: 1px;
+  grid-gap: 10px;
+  margin: 0 auto;
+  padding: 0 30px 30px;
 
   > div {
     background-color: #eeeeee;
@@ -20,11 +20,13 @@ const Grid = styled.div`
     width: 100%;
 
     &.on {
-      background-color: red;
+      background-color: #91baf9;
       cursor: pointer;
+      transition: all 0.15s ease-in-out;
 
       &:hover {
-        background-color: darkred;
+        background-color: #5f9efe;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
       }
     }
   }
@@ -133,110 +135,60 @@ class GameGrid extends Component {
       { id: 98, on: false },
       { id: 99, on: false },
       { id: 100, on: false },
-      { id: 101, on: false },
-      { id: 102, on: false },
-      { id: 103, on: false },
-      { id: 104, on: false },
-      { id: 105, on: false },
-      { id: 106, on: false },
-      { id: 107, on: false },
-      { id: 108, on: false },
-      { id: 109, on: false },
-      { id: 110, on: false },
-      { id: 111, on: false },
-      { id: 112, on: false },
-      { id: 113, on: false },
-      { id: 114, on: false },
-      { id: 115, on: false },
-      { id: 116, on: false },
-      { id: 117, on: false },
-      { id: 118, on: false },
-      { id: 119, on: false },
-      { id: 120, on: false },
-      { id: 121, on: false },
-      { id: 122, on: false },
-      { id: 123, on: false },
-      { id: 124, on: false },
-      { id: 125, on: false },
-      { id: 126, on: false },
-      { id: 127, on: false },
-      { id: 128, on: false },
-      { id: 129, on: false },
-      { id: 130, on: false },
-      { id: 131, on: false },
-      { id: 132, on: false },
-      { id: 133, on: false },
-      { id: 134, on: false },
-      { id: 135, on: false },
-      { id: 136, on: false },
-      { id: 137, on: false },
-      { id: 138, on: false },
-      { id: 139, on: false },
-      { id: 140, on: false },
-      { id: 141, on: false },
-      { id: 142, on: false },
-      { id: 143, on: false },
-      { id: 144, on: false },
-      { id: 145, on: false },
-      { id: 146, on: false },
-      { id: 147, on: false },
-      { id: 148, on: false },
-      { id: 149, on: false },
-      { id: 150, on: false },
-      { id: 151, on: false },
-      { id: 152, on: false },
-      { id: 153, on: false },
-      { id: 154, on: false },
-      { id: 155, on: false },
-      { id: 156, on: false },
-      { id: 157, on: false },
-      { id: 158, on: false },
-      { id: 159, on: false },
-      { id: 160, on: false },
-      { id: 161, on: false },
-      { id: 162, on: false },
-      { id: 163, on: false },
-      { id: 164, on: false },
-      { id: 165, on: false },
-      { id: 166, on: false },
-      { id: 167, on: false },
-      { id: 168, on: false },
-      { id: 169, on: false },
-      { id: 170, on: false },
-      { id: 171, on: false },
-      { id: 172, on: false },
-      { id: 173, on: false },
-      { id: 174, on: false },
-      { id: 175, on: false },
-      { id: 176, on: false },
-      { id: 177, on: false },
-      { id: 178, on: false },
-      { id: 179, on: false },
-      { id: 180, on: false },
-      { id: 181, on: false },
-      { id: 182, on: false },
-      { id: 183, on: false },
-      { id: 184, on: false },
-      { id: 185, on: false },
-      { id: 186, on: false },
-      { id: 187, on: false },
-      { id: 188, on: false },
-      { id: 189, on: false },
-      { id: 190, on: false },
-      { id: 191, on: false },
-      { id: 192, on: false },
-      { id: 193, on: false },
-      { id: 194, on: false },
-      { id: 195, on: false },
-      { id: 196, on: false },
-      { id: 197, on: false },
-      { id: 198, on: false },
-      { id: 199, on: false },
-      { id: 200, on: false },
+      // { id: 101, on: false },
+      // { id: 102, on: false },
+      // { id: 103, on: false },
+      // { id: 104, on: false },
+      // { id: 105, on: false },
+      // { id: 106, on: false },
+      // { id: 107, on: false },
+      // { id: 108, on: false },
+      // { id: 109, on: false },
+      // { id: 110, on: false },
+      // { id: 111, on: false },
+      // { id: 112, on: false },
+      // { id: 113, on: false },
+      // { id: 114, on: false },
+      // { id: 115, on: false },
+      // { id: 116, on: false },
+      // { id: 117, on: false },
+      // { id: 118, on: false },
+      // { id: 119, on: false },
+      // { id: 120, on: false },
+      // { id: 121, on: false },
+      // { id: 122, on: false },
+      // { id: 123, on: false },
+      // { id: 124, on: false },
+      // { id: 125, on: false },
+      // { id: 126, on: false },
+      // { id: 127, on: false },
+      // { id: 128, on: false },
+      // { id: 129, on: false },
+      // { id: 130, on: false },
+      // { id: 131, on: false },
+      // { id: 132, on: false },
+      // { id: 133, on: false },
+      // { id: 134, on: false },
+      // { id: 135, on: false },
+      // { id: 136, on: false },
+      // { id: 137, on: false },
+      // { id: 138, on: false },
+      // { id: 139, on: false },
+      // { id: 140, on: false },
+      // { id: 141, on: false },
+      // { id: 142, on: false },
+      // { id: 143, on: false },
+      // { id: 144, on: false },
+      // { id: 145, on: false },
+      // { id: 146, on: false },
+      // { id: 147, on: false },
+      // { id: 148, on: false },
+      // { id: 149, on: false },
+      // { id: 150, on: false },
     ],
   };
 
-  clicked = (cell) => {
+  clicked = cell => {
     if (cell.on) {
       this.props.addPoint();
       this.newCell();
@@ -245,10 +197,10 @@ class GameGrid extends Component {
 
   newCell = () => {
     this.setState(
-      (prevState) => ({
+      prevState => ({
         ...prevState,
         grid: prevState.grid.map(
-          (cell) => (cell.on ? { ...cell, on: false } : cell),
+          cell => (cell.on ? { ...cell, on: false } : cell),
         ),
       }),
       this.setNextCell,
@@ -272,7 +224,7 @@ class GameGrid extends Component {
   render() {
     return (
       <Grid>
-        {this.state.grid.map((cell) => (
+        {this.state.grid.map(cell => (
           <div
             key={`GameGrid-cell-${cell.id}`}
             onClick={() => this.clicked(cell)}

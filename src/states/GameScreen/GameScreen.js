@@ -6,7 +6,7 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 5,
+    secondsLeft: 30,
   };
 
   componentDidMount = () => {
@@ -41,10 +41,10 @@ class GameScreen extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
         <TimerBar secondsLeft={this.state.secondsLeft} />
         <GameGrid addPoint={this.addPoint} />
-      </React.Fragment>
+      </>
     );
   }
 }

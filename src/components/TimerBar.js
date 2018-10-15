@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const TimerContainer = styled.div`
-  height: 100px;
+  height: 130px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,7 @@ const TimerContainer = styled.div`
     font-size: 50px;
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
   }
 `;
 
