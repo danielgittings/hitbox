@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import TimerBar from '../../components/TimerBar';
 import GameGrid from '../../components/GameGrid';
+import Countdown from '../../components/Countdown';
 
 class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 30,
+    secondsLeft: 10,
+    countdown: true,
   };
 
   componentDidMount = () => {
@@ -22,7 +24,7 @@ class GameScreen extends Component {
 
   decrementSeconds = () => {
     if (this.state.secondsLeft > 0) {
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         secondsLeft: prevState.secondsLeft - 1,
       }));
     } else {
@@ -32,7 +34,7 @@ class GameScreen extends Component {
 
   addPoint = () => {
     this.setState(
-      (prevState) => ({
+      prevState => ({
         score: prevState.score + 1,
       }),
       this.newCell,
