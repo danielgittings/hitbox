@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import tone from '../audio/tone.mp3';
 
 const Grid = styled.div`
   display: grid;
@@ -18,6 +19,7 @@ const Grid = styled.div`
     background-color: #eeeeee;
     height: 100%;
     width: 100%;
+    border-radius: 5px;
 
     &.on {
       background-color: #91baf9;
@@ -186,10 +188,16 @@ class GameGrid extends Component {
       // { id: 149, on: false },
       // { id: 150, on: false },
     ],
+    audio: new Audio(tone),
   };
 
   clicked = cell => {
+    const { audio } = this.state;
+
     if (cell.on) {
+      audio.pause();
+      audio.currentTime = 0;
+      audio.play();
       this.props.addPoint();
       this.newCell();
     }

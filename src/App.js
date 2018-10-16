@@ -1,13 +1,15 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Title from './states/title/Title';
 import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
+import success from './audio/success.mp3';
 
 class App extends Component {
   state = {
     playing: false,
     played: false,
     scores: [],
+    success: new Audio(success),
   };
 
   componentDidMount = () => {
@@ -22,8 +24,8 @@ class App extends Component {
     }
   };
 
-  addNewScore = (score) => {
-    this.setState((prevState) => ({
+  addNewScore = score => {
+    this.setState(prevState => ({
       scores: [...prevState.scores, score],
     }));
   };
@@ -34,9 +36,19 @@ class App extends Component {
     });
   };
 
-  endGame = (score) => {
+  endGame = score => {
+    const { success, scores } = this.state;
+
+    if (scores.length === 0) {
+      success.play();
+    } else if (
+      score.score > Math.max.apply(Math, scores.map(item => item.score))
+    ) {
+      success.play();
+    }
+
     this.setState(
-      (prevState) => ({
+      prevState => ({
         playing: false,
         scores: [...prevState.scores, score],
       }),
@@ -63,26 +75,26 @@ class App extends Component {
       <div style={{ height: '100%' }}>
         {!playing &&
           !played && (
-            <Fragment>
+            <>
               <Title startGame={this.startGame} />
-            </Fragment>
+            </>
           )}
 
         {!playing &&
           played && (
-            <Fragment>
+            <>
               <Summary scores={scores} startGame={this.startGame} />
-            </Fragment>
+            </>
           )}
 
         {playing && (
-          <Fragment>
+          <>
             <GameScreen
               markAsPlayed={this.markAsPlayed}
               addNewScore={this.addNewScore}
               endGame={this.endGame}
             />
-          </Fragment>
+          </>
         )}
       </div>
     );
