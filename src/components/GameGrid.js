@@ -37,7 +37,7 @@ const Grid = styled.div`
 class GameGrid extends Component {
   state = {
     grid: [
-      { id: 1, on: true },
+      { id: 1, on: false },
       { id: 2, on: false },
       { id: 3, on: false },
       { id: 4, on: false },
@@ -228,6 +228,10 @@ class GameGrid extends Component {
   randomNumber = () => {
     return Math.floor(Math.random() * (this.state.grid.length - 1)) + 0;
   };
+
+  componentDidMount() {
+    this.setNextCell();
+  }
 
   render() {
     return (
