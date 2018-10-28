@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import TimerBar from '../../components/TimerBar';
 import GameGrid from '../../components/GameGrid';
-import Countdown from '../../components/Countdown';
+import ScreenWidth from '../../components/ScreenWidth';
 
 class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 10,
+    secondsLeft: 30,
     countdown: true,
   };
 
@@ -45,7 +45,9 @@ class GameScreen extends Component {
     return (
       <>
         <TimerBar secondsLeft={this.state.secondsLeft} />
-        <GameGrid addPoint={this.addPoint} />
+        <ScreenWidth>
+          {width => <GameGrid width={width} addPoint={this.addPoint} />}
+        </ScreenWidth>
       </>
     );
   }

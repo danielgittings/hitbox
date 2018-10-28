@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
 import tone from '../audio/tone.mp3';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: ${props =>
+    props.width > 600 ? 'repeat(10, 1fr)' : 'repeat(5, 1fr)'};
   grid-auto-rows: auto;
   grid-template-rows: auto;
   height: calc(100vh - 160px);
@@ -137,58 +139,9 @@ class GameGrid extends Component {
       { id: 98, on: false },
       { id: 99, on: false },
       { id: 100, on: false },
-      // { id: 101, on: false },
-      // { id: 102, on: false },
-      // { id: 103, on: false },
-      // { id: 104, on: false },
-      // { id: 105, on: false },
-      // { id: 106, on: false },
-      // { id: 107, on: false },
-      // { id: 108, on: false },
-      // { id: 109, on: false },
-      // { id: 110, on: false },
-      // { id: 111, on: false },
-      // { id: 112, on: false },
-      // { id: 113, on: false },
-      // { id: 114, on: false },
-      // { id: 115, on: false },
-      // { id: 116, on: false },
-      // { id: 117, on: false },
-      // { id: 118, on: false },
-      // { id: 119, on: false },
-      // { id: 120, on: false },
-      // { id: 121, on: false },
-      // { id: 122, on: false },
-      // { id: 123, on: false },
-      // { id: 124, on: false },
-      // { id: 125, on: false },
-      // { id: 126, on: false },
-      // { id: 127, on: false },
-      // { id: 128, on: false },
-      // { id: 129, on: false },
-      // { id: 130, on: false },
-      // { id: 131, on: false },
-      // { id: 132, on: false },
-      // { id: 133, on: false },
-      // { id: 134, on: false },
-      // { id: 135, on: false },
-      // { id: 136, on: false },
-      // { id: 137, on: false },
-      // { id: 138, on: false },
-      // { id: 139, on: false },
-      // { id: 140, on: false },
-      // { id: 141, on: false },
-      // { id: 142, on: false },
-      // { id: 143, on: false },
-      // { id: 144, on: false },
-      // { id: 145, on: false },
-      // { id: 146, on: false },
-      // { id: 147, on: false },
-      // { id: 148, on: false },
-      // { id: 149, on: false },
-      // { id: 150, on: false },
     ],
     audio: new Audio(tone),
+    numCells: null,
   };
 
   clicked = cell => {
@@ -217,7 +170,7 @@ class GameGrid extends Component {
 
   setNextCell = () => {
     const random = this.randomNumber();
-    const newGrid = this.state.grid;
+    const newGrid = this.state.grid.slice(0, this.state.numCells);
     newGrid[random] = { ...newGrid[random], on: true };
 
     this.setState({
@@ -226,24 +179,32 @@ class GameGrid extends Component {
   };
 
   randomNumber = () => {
-    return Math.floor(Math.random() * (this.state.grid.length - 1)) + 0;
+    return Math.floor(Math.random() * this.state.numCells) + 0;
   };
 
   componentDidMount() {
-    this.setNextCell();
+    const cells = this.props.width > 600 ? 100 : 25;
+    this.setState(
+      {
+        numCells: cells,
+      },
+      this.setNextCell,
+    );
   }
 
   render() {
     return (
-      <Grid>
-        {this.state.grid.map(cell => (
-          <div
-            key={`GameGrid-cell-${cell.id}`}
-            onClick={() => this.clicked(cell)}
-            className={cell.on ? 'on' : null}
-          />
-        ))}
-      </Grid>
+      <>
+        <Grid width={this.props.width}>
+          {this.state.grid.slice(0, this.state.numCells).map(cell => (
+            <div
+              key={`GameGrid-cell-${cell.id}`}
+              onClick={() => this.clicked(cell)}
+              className={cell.on ? 'on' : null}
+            />
+          ))}
+        </Grid>
+      </>
     );
   }
 }
