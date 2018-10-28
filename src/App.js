@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Title from './states/title/Title';
 import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
+import Countdown from './states/countdown/Countdown';
 import success from './audio/success.mp3';
 
 class App extends Component {
   state = {
     playing: false,
     played: false,
+    countingDown: false,
     scores: [],
     success: new Audio(success),
   };
@@ -32,7 +34,14 @@ class App extends Component {
 
   startGame = () => {
     this.setState({
+      countingDown: true,
       playing: true,
+    });
+  };
+
+  endCountdown = () => {
+    this.setState({
+      countingDown: false,
     });
   };
 
@@ -69,7 +78,7 @@ class App extends Component {
   };
 
   render() {
-    const { scores, playing, played } = this.state;
+    const { scores, playing, played, countingDown } = this.state;
 
     return (
       <div style={{ height: '100%' }}>
@@ -87,15 +96,19 @@ class App extends Component {
             </>
           )}
 
-        {playing && (
-          <>
-            <GameScreen
-              markAsPlayed={this.markAsPlayed}
-              addNewScore={this.addNewScore}
-              endGame={this.endGame}
-            />
-          </>
-        )}
+        {playing &&
+          countingDown && <Countdown endCountdown={this.endCountdown} />}
+
+        {playing &&
+          !countingDown && (
+            <>
+              <GameScreen
+                markAsPlayed={this.markAsPlayed}
+                addNewScore={this.addNewScore}
+                endGame={this.endGame}
+              />
+            </>
+          )}
       </div>
     );
   }
