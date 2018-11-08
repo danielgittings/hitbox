@@ -28,7 +28,12 @@ class GameScreen extends Component {
         secondsLeft: prevState.secondsLeft - 1,
       }));
     } else {
-      this.props.endGame({ timestamp: Date.now(), score: this.state.score });
+      const size = this.props.width > 600 ? 'desktop' : 'mobile';
+      this.props.endGame({
+        timestamp: Date.now(),
+        score: this.state.score,
+        device: size,
+      });
     }
   };
 
@@ -45,9 +50,7 @@ class GameScreen extends Component {
     return (
       <>
         <TimerBar secondsLeft={this.state.secondsLeft} />
-        <ScreenWidth>
-          {width => <GameGrid width={width} addPoint={this.addPoint} />}
-        </ScreenWidth>
+        <GameGrid width={this.props.width} addPoint={this.addPoint} />
       </>
     );
   }
