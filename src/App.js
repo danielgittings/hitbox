@@ -3,6 +3,7 @@ import Title from './states/title/Title';
 import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
 import Countdown from './states/countdown/Countdown';
+import ScreenWidth from './components/ScreenWidth';
 import success from './audio/success.mp3';
 
 class App extends Component {
@@ -102,11 +103,16 @@ class App extends Component {
         {playing &&
           !countingDown && (
             <>
-              <GameScreen
-                markAsPlayed={this.markAsPlayed}
-                addNewScore={this.addNewScore}
-                endGame={this.endGame}
-              />
+              <ScreenWidth>
+                {width => (
+                  <GameScreen
+                    width={width}
+                    markAsPlayed={this.markAsPlayed}
+                    addNewScore={this.addNewScore}
+                    endGame={this.endGame}
+                  />
+                )}
+              </ScreenWidth>
             </>
           )}
       </div>
