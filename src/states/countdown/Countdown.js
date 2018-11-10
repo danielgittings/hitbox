@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Centraliser from '../../components/Centraliser';
 
@@ -6,16 +7,16 @@ const CountdownNumber = styled.p`
   font-size: 10rem;
 `;
 
-export default class Countdown extends Component {
+class Countdown extends Component {
   state = {
     secondsLeft: 3400,
-    timer: null,
+    timer: null
   };
 
   componentDidMount() {
     const timer = setInterval(this.decrementSeconds, 100);
     this.setState({
-      timer,
+      timer
     });
   }
 
@@ -26,7 +27,7 @@ export default class Countdown extends Component {
   decrementSeconds = () => {
     if (this.state.secondsLeft > 500) {
       this.setState(prevState => ({
-        secondsLeft: prevState.secondsLeft - 100,
+        secondsLeft: prevState.secondsLeft - 100
       }));
     } else {
       this.props.endCountdown();
@@ -45,3 +46,9 @@ export default class Countdown extends Component {
     );
   }
 }
+
+Countdown.propTypes = {
+  endCountdown: PropTypes.func.isRequired
+};
+
+export default Countdown;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 class ScreenWidth extends Component {
   state = {
-    width: window.innerWidth,
+    width: window.innerWidth
   };
 
   componentDidMount() {
@@ -17,7 +17,7 @@ class ScreenWidth extends Component {
 
   updateWidth = () => {
     this.setState({
-      width: window.innerWidth,
+      width: window.innerWidth
     });
   };
 
@@ -28,7 +28,7 @@ class ScreenWidth extends Component {
 }
 
 ScreenWidth.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.func.isRequired
 };
 
 export default ScreenWidth;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 // prettier-ignore
@@ -10,18 +11,13 @@ const MainTitle = styled.h1`
   color: #444444;
 `;
 
-const GameTitle = ({ title, primary }) => {
-  let props = { title };
+const GameTitle = ({ title, primary }) => (
+  <MainTitle primary={primary}>{title}</MainTitle>
+);
 
-  if (primary) {
-    props.primary = primary;
-  }
-
-  return (
-    <>
-      <MainTitle {...props}>{title}</MainTitle>
-    </>
-  );
+GameTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  primary: PropTypes.bool
 };
 
 export default GameTitle;

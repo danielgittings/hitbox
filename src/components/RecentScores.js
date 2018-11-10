@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const PreviousScores = ({ scores }) => (
   <>
@@ -15,5 +16,15 @@ const PreviousScores = ({ scores }) => (
     </ul>
   </>
 );
+
+PreviousScores.propTypes = {
+  scores: PropTypes.arrayOf(
+    PropTypes.shape({
+      device: PropTypes.string.isRequired,
+      score: PropTypes.number.isRequired,
+      timestamp: PropTypes.number.isRequired
+    })
+  )
+};
 
 export default PreviousScores;

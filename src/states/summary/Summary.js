@@ -29,10 +29,10 @@ Summary.propTypes = {
     PropTypes.shape({
       device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.number.isRequired,
-    }),
+      timestamp: PropTypes.number.isRequired
+    })
   ).isRequired,
-  startGame: PropTypes.func.isRequired,
+  startGame: PropTypes.func.isRequired
 };
 
 export default Summary;

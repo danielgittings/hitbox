@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import tone from '../audio/tone.mp3';
@@ -138,10 +139,10 @@ class GameGrid extends Component {
       { id: 97, on: false },
       { id: 98, on: false },
       { id: 99, on: false },
-      { id: 100, on: false },
+      { id: 100, on: false }
     ],
     audio: new Audio(tone),
-    numCells: null,
+    numCells: null
   };
 
   clicked = cell => {
@@ -160,11 +161,11 @@ class GameGrid extends Component {
     this.setState(
       prevState => ({
         ...prevState,
-        grid: prevState.grid.map(
-          cell => (cell.on ? { ...cell, on: false } : cell),
-        ),
+        grid: prevState.grid.map(cell =>
+          cell.on ? { ...cell, on: false } : cell
+        )
       }),
-      this.setNextCell,
+      this.setNextCell
     );
   };
 
@@ -174,7 +175,7 @@ class GameGrid extends Component {
     newGrid[random] = { ...newGrid[random], on: true };
 
     this.setState({
-      grid: newGrid,
+      grid: newGrid
     });
   };
 
@@ -186,9 +187,9 @@ class GameGrid extends Component {
     const cells = this.props.width > 600 ? 100 : 25;
     this.setState(
       {
-        numCells: cells,
+        numCells: cells
       },
-      this.setNextCell,
+      this.setNextCell
     );
   }
 
@@ -208,5 +209,10 @@ class GameGrid extends Component {
     );
   }
 }
+
+GameGrid.propTypes = {
+  addPoint: PropTypes.func.isRequired,
+  width: PropTypes.number.isRequired
+};
 
 export default GameGrid;
