@@ -7,12 +7,12 @@ import RecentScores from '../../components/RecentScores';
 import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
 
-const Summary = ({ scores, startGame }) => (
+const Summary = ({ scores, startGame, showHighScore }) => (
   <>
     <Centraliser>
       <GameTitle title="Clicktangles" />
       <StartButton startGame={startGame} buttonText={'Play again'} />
-      <FinalScore scores={scores} />
+      {showHighScore && <FinalScore scores={scores} />}
 
       {scores.length > 1 && (
         <>

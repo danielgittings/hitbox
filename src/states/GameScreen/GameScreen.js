@@ -7,7 +7,7 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 30,
+    secondsLeft: 10,
     countdown: true
   };
 
@@ -34,6 +34,7 @@ class GameScreen extends Component {
         score: this.state.score,
         device: size
       });
+      this.props.toggleShowHighScore();
     }
   };
 
@@ -58,7 +59,8 @@ class GameScreen extends Component {
 
 GameScreen.propTypes = {
   endGame: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired
+  width: PropTypes.number.isRequired,
+  toggleShowHighScore: PropTypes.func.isRequired
 };
 
 export default GameScreen;
