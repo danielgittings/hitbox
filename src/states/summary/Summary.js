@@ -1,13 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import HighScore from '../../components/HighScore';
-import PreviousScores from '../../components/PreviousScores';
+import RecentScores from '../../components/RecentScores';
 import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
 
 const Summary = ({ scores, startGame }) => (
-  <React.Fragment>
+  <>
     <Centraliser>
       <GameTitle title="Clicktangles" />
       <StartButton startGame={startGame} buttonText={'Play again'} />
@@ -16,11 +17,22 @@ const Summary = ({ scores, startGame }) => (
       {scores.length > 1 && (
         <>
           <HighScore scores={scores} />
-          <PreviousScores scores={scores} />
+          <RecentScores scores={scores} />
         </>
       )}
     </Centraliser>
-  </React.Fragment>
+  </>
 );
+
+Summary.propTypes = {
+  scores: PropTypes.arrayOf(
+    PropTypes.shape({
+      device: PropTypes.string.isRequired,
+      score: PropTypes.number.isRequired,
+      timestamp: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  startGame: PropTypes.func.isRequired,
+};
 
 export default Summary;

@@ -1,6 +1,7 @@
+// eslint-disable-next-line
 import React, { Component } from 'react';
-
-export default class ScreenWidth extends Component {
+import PropTypes from 'prop-types';
+class ScreenWidth extends Component {
   state = {
     width: window.innerWidth,
   };
@@ -25,3 +26,9 @@ export default class ScreenWidth extends Component {
     return <>{this.props.children(width)}</>;
   }
 }
+
+ScreenWidth.propTypes = {
+  children: PropTypes.element.isRequired,
+};
+
+export default ScreenWidth;

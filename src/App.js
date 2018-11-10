@@ -83,38 +83,36 @@ class App extends Component {
 
     return (
       <div style={{ height: '100%' }}>
-        {!playing &&
-          !played && (
-            <>
-              <Title startGame={this.startGame} />
-            </>
-          )}
+        {!playing && !played && (
+          <>
+            <Title startGame={this.startGame} />
+          </>
+        )}
 
-        {!playing &&
-          played && (
-            <>
-              <Summary scores={scores} startGame={this.startGame} />
-            </>
-          )}
+        {!playing && played && (
+          <>
+            <Summary scores={scores} startGame={this.startGame} />
+          </>
+        )}
 
-        {playing &&
-          countingDown && <Countdown endCountdown={this.endCountdown} />}
+        {playing && countingDown && (
+          <Countdown endCountdown={this.endCountdown} />
+        )}
 
-        {playing &&
-          !countingDown && (
-            <>
-              <ScreenWidth>
-                {width => (
-                  <GameScreen
-                    width={width}
-                    markAsPlayed={this.markAsPlayed}
-                    addNewScore={this.addNewScore}
-                    endGame={this.endGame}
-                  />
-                )}
-              </ScreenWidth>
-            </>
-          )}
+        {playing && !countingDown && (
+          <>
+            <ScreenWidth>
+              {width => (
+                <GameScreen
+                  width={width}
+                  markAsPlayed={this.markAsPlayed}
+                  addNewScore={this.addNewScore}
+                  endGame={this.endGame}
+                />
+              )}
+            </ScreenWidth>
+          </>
+        )}
       </div>
     );
   }
