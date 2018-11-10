@@ -7,7 +7,7 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 10,
+    secondsLeft: 30,
     countdown: true
   };
 
