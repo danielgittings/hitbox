@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StartGameButton = styled.button`
@@ -8,7 +9,7 @@ const StartGameButton = styled.button`
   border: none;
   -webkit-appearance: none;
   background-color: #91baf9;
-  color: #333;
+  color: #333333;
   cursor: pointer;
   width: 200px;
   font-size: 2rem;
@@ -19,5 +20,10 @@ const StartGameButton = styled.button`
 const StartButton = ({ startGame, buttonText }) => (
   <StartGameButton onClick={startGame}>{buttonText}</StartGameButton>
 );
+
+StartButton.propTypes = {
+  startGame: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired
+};
 
 export default StartButton;

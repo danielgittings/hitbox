@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TimerBar from '../../components/TimerBar';
 import GameGrid from '../../components/GameGrid';
-import ScreenWidth from '../../components/ScreenWidth';
 
 class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
     secondsLeft: 30,
-    countdown: true,
+    countdown: true
   };
 
   componentDidMount = () => {
     const timer = setInterval(this.decrementSeconds, 1000);
     this.setState({
-      timer,
+      timer
     });
   };
 
@@ -25,14 +25,14 @@ class GameScreen extends Component {
   decrementSeconds = () => {
     if (this.state.secondsLeft > 0) {
       this.setState(prevState => ({
-        secondsLeft: prevState.secondsLeft - 1,
+        secondsLeft: prevState.secondsLeft - 1
       }));
     } else {
       const size = this.props.width > 600 ? 'desktop' : 'mobile';
       this.props.endGame({
         timestamp: Date.now(),
         score: this.state.score,
-        device: size,
+        device: size
       });
     }
   };
@@ -40,9 +40,9 @@ class GameScreen extends Component {
   addPoint = () => {
     this.setState(
       prevState => ({
-        score: prevState.score + 1,
+        score: prevState.score + 1
       }),
-      this.newCell,
+      this.newCell
     );
   };
 
@@ -55,5 +55,10 @@ class GameScreen extends Component {
     );
   }
 }
+
+GameScreen.propTypes = {
+  endGame: PropTypes.func.isRequired,
+  width: PropTypes.number.isRequired
+};
 
 export default GameScreen;

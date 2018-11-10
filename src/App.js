@@ -12,7 +12,7 @@ class App extends Component {
     played: false,
     countingDown: false,
     scores: [],
-    success: new Audio(success),
+    success: new Audio(success)
   };
 
   componentDidMount = () => {
@@ -22,27 +22,27 @@ class App extends Component {
     if (scores) {
       this.setState({
         scores,
-        played: true,
+        played: true
       });
     }
   };
 
   addNewScore = score => {
     this.setState(prevState => ({
-      scores: [...prevState.scores, score],
+      scores: [...prevState.scores, score]
     }));
   };
 
   startGame = () => {
     this.setState({
       countingDown: true,
-      playing: true,
+      playing: true
     });
   };
 
   endCountdown = () => {
     this.setState({
-      countingDown: false,
+      countingDown: false
     });
   };
 
@@ -60,9 +60,9 @@ class App extends Component {
     this.setState(
       prevState => ({
         playing: false,
-        scores: [...prevState.scores, score],
+        scores: [...prevState.scores, score]
       }),
-      this.saveScore,
+      this.saveScore
     );
 
     this.markAsPlayed();
@@ -74,7 +74,7 @@ class App extends Component {
 
   markAsPlayed = () => {
     this.setState({
-      played: true,
+      played: true
     });
   };
 
@@ -83,38 +83,36 @@ class App extends Component {
 
     return (
       <div style={{ height: '100%' }}>
-        {!playing &&
-          !played && (
-            <>
-              <Title startGame={this.startGame} />
-            </>
-          )}
+        {!playing && !played && (
+          <>
+            <Title startGame={this.startGame} />
+          </>
+        )}
 
-        {!playing &&
-          played && (
-            <>
-              <Summary scores={scores} startGame={this.startGame} />
-            </>
-          )}
+        {!playing && played && (
+          <>
+            <Summary scores={scores} startGame={this.startGame} />
+          </>
+        )}
 
-        {playing &&
-          countingDown && <Countdown endCountdown={this.endCountdown} />}
+        {playing && countingDown && (
+          <Countdown endCountdown={this.endCountdown} />
+        )}
 
-        {playing &&
-          !countingDown && (
-            <>
-              <ScreenWidth>
-                {width => (
-                  <GameScreen
-                    width={width}
-                    markAsPlayed={this.markAsPlayed}
-                    addNewScore={this.addNewScore}
-                    endGame={this.endGame}
-                  />
-                )}
-              </ScreenWidth>
-            </>
-          )}
+        {playing && !countingDown && (
+          <>
+            <ScreenWidth>
+              {width => (
+                <GameScreen
+                  width={width}
+                  markAsPlayed={this.markAsPlayed}
+                  addNewScore={this.addNewScore}
+                  endGame={this.endGame}
+                />
+              )}
+            </ScreenWidth>
+          </>
+        )}
       </div>
     );
   }

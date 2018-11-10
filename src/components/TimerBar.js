@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TimerContainer = styled.div`
@@ -21,5 +22,9 @@ const TimerBar = ({ secondsLeft }) => (
     <h2>{secondsLeft}</h2>
   </TimerContainer>
 );
+
+TimerBar.propTypes = {
+  secondsLeft: PropTypes.number.isRequired
+};
 
 export default TimerBar;

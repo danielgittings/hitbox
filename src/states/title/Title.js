@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import Centraliser from '../../components/Centraliser';
@@ -24,5 +25,9 @@ const Title = ({ startGame }) => (
     </Centraliser>
   </>
 );
+
+Title.propTypes = {
+  startGame: PropTypes.func.isRequired
+};
 
 export default Title;
