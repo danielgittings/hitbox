@@ -12,7 +12,8 @@ class App extends Component {
     played: false,
     countingDown: false,
     scores: [],
-    success: new Audio(success)
+    success: new Audio(success),
+    showHighScore: false
   };
 
   componentDidMount = () => {
@@ -78,8 +79,14 @@ class App extends Component {
     });
   };
 
+  toggleShowHighScore = () => {
+    this.setState({
+      showHighScore: true
+    });
+  };
+
   render() {
-    const { scores, playing, played, countingDown } = this.state;
+    const { scores, playing, played, countingDown, showHighScore } = this.state;
 
     return (
       <div style={{ height: '100%' }}>
@@ -91,7 +98,11 @@ class App extends Component {
 
         {!playing && played && (
           <>
-            <Summary scores={scores} startGame={this.startGame} />
+            <Summary
+              showHighScore={showHighScore}
+              scores={scores}
+              startGame={this.startGame}
+            />
           </>
         )}
 
@@ -105,6 +116,7 @@ class App extends Component {
               {width => (
                 <GameScreen
                   width={width}
+                  toggleShowHighScore={this.toggleShowHighScore}
                   markAsPlayed={this.markAsPlayed}
                   addNewScore={this.addNewScore}
                   endGame={this.endGame}
