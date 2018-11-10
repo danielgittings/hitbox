@@ -80,7 +80,6 @@ class App extends Component {
   };
 
   toggleShowHighScore = () => {
-    console.log('toggling high score display');
     this.setState({
       showHighScore: true
     });
