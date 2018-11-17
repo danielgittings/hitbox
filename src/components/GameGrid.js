@@ -142,7 +142,8 @@ class GameGrid extends Component {
       { id: 100, on: false }
     ],
     audio: new Audio(tone),
-    numCells: null
+    numCells: null,
+    previousCell: null
   };
 
   clicked = cell => {
@@ -158,12 +159,15 @@ class GameGrid extends Component {
   };
 
   newCell = () => {
+    const currentCell = this.state.grid.findIndex(cell => cell.on === true);
+
     this.setState(
       prevState => ({
         ...prevState,
         grid: prevState.grid.map(cell =>
           cell.on ? { ...cell, on: false } : cell
-        )
+        ),
+        previousCell: currentCell
       }),
       this.setNextCell
     );
@@ -180,7 +184,13 @@ class GameGrid extends Component {
   };
 
   randomNumber = () => {
-    return Math.floor(Math.random() * this.state.numCells) + 0;
+    let newNumber = Math.floor(Math.random() * this.state.numCells) + 0;
+
+    while (newNumber === this.state.previousCell) {
+      newNumber = Math.floor(Math.random() * this.state.numCells) + 0;
+    }
+
+    return newNumber;
   };
 
   componentDidMount() {
