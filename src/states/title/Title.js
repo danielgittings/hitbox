@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import Centraliser from '../../components/Centraliser';
-import styled from 'styled-components';
+import Footer from '../../components/Footer';
 
 const SubHeading = styled.h3`
   font-size: 30px;
@@ -23,6 +25,7 @@ const Title = ({ startGame }) => (
       </SubHeading>
       <StartButton startGame={startGame} buttonText={'Start'} />
     </Centraliser>
+    <Footer />
   </>
 );
 

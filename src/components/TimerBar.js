@@ -10,10 +10,11 @@ const TimerContainer = styled.div`
 
   h2 {
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    color: #444444;
   }
 `;
 

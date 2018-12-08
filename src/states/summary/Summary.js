@@ -2,25 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
-import HighScore from '../../components/HighScore';
-import RecentScores from '../../components/RecentScores';
 import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
+import Scores from '../../components/Scores';
+import Footer from '../../components/Footer';
 
 const Summary = ({ scores, startGame, showHighScore }) => (
   <>
     <Centraliser>
-      <GameTitle title="Clicktangles" />
+      <GameTitle title="Clicktangles" primary={false} />
       <StartButton startGame={startGame} buttonText={'Play again'} />
       {showHighScore && <FinalScore scores={scores} />}
 
       {scores.length > 1 && (
         <>
-          <HighScore scores={scores} />
-          <RecentScores scores={scores} />
+          <Scores scores={scores} />
+          {/* <HighScore scores={scores} />
+          <RecentScores scores={scores} /> */}
         </>
       )}
     </Centraliser>
+    <Footer />
   </>
 );
 

@@ -10,13 +10,14 @@ const Grid = styled.div`
     props.width > 600 ? 'repeat(10, 1fr)' : 'repeat(5, 1fr)'};
   grid-auto-rows: auto;
   grid-template-rows: auto;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 170px);
   max-height: 100vh;
   max-width: 1000px;
   background-color: #ffffff;
   grid-gap: 10px;
-  margin: 0 auto;
-  padding: 0 30px 30px;
+  margin: 0 auto 30px;
+  padding: 30px;
+  border-radius: 5px;
 
   > div {
     background-color: #eeeeee;
