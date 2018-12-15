@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 import Container from './components/Container';
 import Title from './states/title/Title';
@@ -10,6 +11,20 @@ import ScreenWidth from './components/ScreenWidth';
 import success from './audio/success.mp3';
 
 import { theme } from './utils/theme';
+
+const StyledApp = styled.div`
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: ${props => props.theme.primaryText};
+  height: 100%;
+  /* background-image: linear-gradient(120deg, #ebedee 0%, #ebedee 100%); */
+  background: rgb(14, 131, 205);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 131, 205, 1) 0%,
+    rgba(13, 99, 153, 1) 100%
+  );
+`;
 
 class App extends Component {
   state = {
@@ -95,12 +110,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <div
-          style={{
-            height: '100%',
-            backgroundImage: 'linear-gradient(120deg, #ebedee 0%, #ebedee 100%)'
-          }}
-        >
+        <StyledApp>
           <Container>
             {!playing && !played && (
               <>
@@ -138,7 +148,7 @@ class App extends Component {
               </>
             )}
           </Container>
-        </div>
+        </StyledApp>
       </ThemeProvider>
     );
   }

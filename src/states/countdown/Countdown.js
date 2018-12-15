@@ -5,7 +5,7 @@ import Centraliser from '../../components/Centraliser';
 
 const CountdownNumber = styled.p`
   font-size: 15rem;
-  font-family: sans-serif;
+  font-weight: 300;
 `;
 
 class Countdown extends Component {

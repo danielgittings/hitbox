@@ -5,6 +5,7 @@ const StyledContainer = styled.div`
   max-width: 750px;
   height: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 `;
 
 const Container = ({ children }) => {

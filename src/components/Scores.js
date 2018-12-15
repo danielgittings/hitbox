@@ -6,20 +6,20 @@ import RecentScores from '../components/RecentScores';
 
 const StyledScores = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   margin: 100px 0 50px;
   width: 100%;
 `;
 
 const StyledScoreContainer = styled.div`
   width: 100%;
-  max-width: 300px;
   background-color: white;
   padding: ${props => props.theme.padding};
-  margin: 0 0 30px;
+  margin: 30px 20px 0;
   display: flex;
+  flex-grow: 1;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;

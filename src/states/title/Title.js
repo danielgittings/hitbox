@@ -10,14 +10,15 @@ import Footer from '../../components/Footer';
 const SubHeading = styled.h3`
   font-size: 30px;
   margin: 0 0 4rem;
-  color: #333333;
+  color: ${props => props.theme.primaryText};
+  font-weight: 300;
   text-align: center;
 `;
 
 const Title = ({ startGame }) => (
   <>
     <Centraliser>
-      <GameTitle title="Clicktangles" primary />
+      <GameTitle title="CLICKTANGLES" primary />
       <SubHeading>
         Click the blue square.
         <br />

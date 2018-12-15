@@ -13,20 +13,22 @@ const Grid = styled.div`
   height: calc(100vh - 170px);
   max-height: 100vh;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: rgb(255, 255, 255, 0.2);
   grid-gap: 10px;
   margin: 0 auto 30px;
   padding: 30px;
   border-radius: 5px;
 
   > div {
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
+    background-color: rgba(255, 255, 255, 0.9);
     height: 100%;
     width: 100%;
     border-radius: 5px;
 
     &.on {
-      background-color: #91baf9;
+      /* background-color: #91baf9; */
+      background-color: ${props => props.theme.button}
       cursor: pointer;
       transition: all 0.15s ease-in-out;
 

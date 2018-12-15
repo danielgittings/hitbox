@@ -13,8 +13,8 @@ const TimerContainer = styled.div`
     font-size: 60px;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
-    color: #444444;
+    font-weight: 300;
+    color: ${props => props.theme.white};
   }
 `;
 
