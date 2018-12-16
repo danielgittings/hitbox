@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
 
@@ -26,14 +26,14 @@ const StyledApp = styled.div`
   );
 `;
 
-class App extends Component {
+class App extends PureComponent {
   state = {
     playing: false,
     played: false,
     countingDown: false,
     scores: [],
     success: new Audio(success),
-    showHighScore: false
+    showFinalScore: false
   };
 
   componentDidMount = () => {
@@ -99,14 +99,22 @@ class App extends Component {
     });
   };
 
-  toggleShowHighScore = () => {
+  toggleShowFinalScore = () => {
     this.setState({
-      showHighScore: true
+      showFinalScore: true
     });
   };
 
   render() {
-    const { scores, playing, played, countingDown, showHighScore } = this.state;
+    const {
+      scores,
+      playing,
+      played,
+      countingDown,
+      showFinalScore
+    } = this.state;
+
+    console.log('rendering app');
 
     return (
       <ThemeProvider theme={theme}>
@@ -121,7 +129,7 @@ class App extends Component {
             {!playing && played && (
               <>
                 <Summary
-                  showHighScore={showHighScore}
+                  showFinalScore={showFinalScore}
                   scores={scores}
                   startGame={this.startGame}
                 />
@@ -138,7 +146,7 @@ class App extends Component {
                   {width => (
                     <GameScreen
                       width={width}
-                      toggleShowHighScore={this.toggleShowHighScore}
+                      toggleShowFinalScore={this.toggleShowFinalScore}
                       markAsPlayed={this.markAsPlayed}
                       addNewScore={this.addNewScore}
                       endGame={this.endGame}

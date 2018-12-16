@@ -15,6 +15,7 @@ const TimerContainer = styled.div`
     padding: 0;
     font-weight: 300;
     color: ${props => props.theme.white};
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
   }
 `;
 

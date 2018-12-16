@@ -13,6 +13,7 @@ const SubHeading = styled.h3`
   color: ${props => props.theme.primaryText};
   font-weight: 300;
   text-align: center;
+  line-height: 2.5rem;
 `;
 
 const Title = ({ startGame }) => (

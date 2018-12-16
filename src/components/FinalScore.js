@@ -2,7 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const StyledH2 = styled.h2`
+const StyledScoreContainer = styled.div`
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledScore = styled.span`
+  font-size: 8rem;
+`;
+
+const StyledText = styled.span`
+  font-size: 1.5rem;
   font-family: 300;
 `;
 
@@ -10,9 +23,10 @@ const FinalScore = ({ scores }) => {
   const mostRecent = scores.sort((a, b) => b.timestamp - a.timestamp)[0];
 
   return (
-    <>
-      <StyledH2>Final score: {mostRecent.score}</StyledH2>
-    </>
+    <StyledScoreContainer>
+      <StyledText>You scored</StyledText>
+      <StyledScore>{mostRecent.score}</StyledScore>
+    </StyledScoreContainer>
   );
 };
 

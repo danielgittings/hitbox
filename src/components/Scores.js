@@ -11,6 +11,7 @@ const StyledScores = styled.div`
   align-items: stretch;
   margin: 100px 0 50px;
   width: 100%;
+  color: black;
 `;
 
 const StyledScoreContainer = styled.div`
