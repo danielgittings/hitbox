@@ -210,7 +210,7 @@ class GameGrid extends Component {
   render() {
     return (
       <>
-        <OneHundredVh minus={170}>
+        <OneHundredVh minus={140}>
           <Grid width={this.props.width}>
             {this.state.grid.slice(0, this.state.numCells).map(cell => (
               <div

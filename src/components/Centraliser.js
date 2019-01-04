@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: calc(100% - 60px);
+  /* height: calc(100% - 60px); */
 `;
 
 const Centraliser = ({ children }) => <Wrapper>{children}</Wrapper>;
