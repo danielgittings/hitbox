@@ -218,7 +218,7 @@ class GameGrid extends Component {
     return (
       <>
         <GridWrapper>
-          <Grid width={this.props.width}>
+          {/* <Grid width={this.props.width}>
             {this.state.grid.slice(0, this.state.numCells).map(cell => (
               <div
                 key={`GameGrid-cell-${cell.id}`}
@@ -226,7 +226,7 @@ class GameGrid extends Component {
                 className={cell.on ? 'on' : null}
               />
             ))}
-          </Grid>
+          </Grid> */}
         </GridWrapper>
       </>
     );
