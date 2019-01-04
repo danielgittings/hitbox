@@ -4,6 +4,13 @@ import styled from 'styled-components';
 
 import tone from '../audio/tone.mp3';
 
+const GridWrapper = styled.div`
+  padding: 30px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 5px;
+  height: calc(100vh - 170px);
+`;
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: ${props =>
@@ -11,13 +18,14 @@ const Grid = styled.div`
   grid-auto-rows: auto;
   grid-template-rows: auto;
   height: calc(100vh - 170px);
-  max-height: 100vh;
+  /* max-height: 100vh; */
+  height: 100%;
   max-width: 1000px;
-  background-color: rgb(255, 255, 255, 0.2);
+  /* background-color: rgb(255, 255, 255, 0.2); */
   grid-gap: 10px;
   margin: 0 auto 30px;
-  padding: 30px;
-  border-radius: 5px;
+  /* padding: 30px; */
+  /* border-radius: 5px; */
 
   > div {
     /* background-color: #eeeeee; */
@@ -209,15 +217,17 @@ class GameGrid extends Component {
   render() {
     return (
       <>
-        <Grid width={this.props.width}>
-          {this.state.grid.slice(0, this.state.numCells).map(cell => (
-            <div
-              key={`GameGrid-cell-${cell.id}`}
-              onClick={() => this.clicked(cell)}
-              className={cell.on ? 'on' : null}
-            />
-          ))}
-        </Grid>
+        <GridWrapper>
+          <Grid width={this.props.width}>
+            {this.state.grid.slice(0, this.state.numCells).map(cell => (
+              <div
+                key={`GameGrid-cell-${cell.id}`}
+                onClick={() => this.clicked(cell)}
+                className={cell.on ? 'on' : null}
+              />
+            ))}
+          </Grid>
+        </GridWrapper>
       </>
     );
   }
