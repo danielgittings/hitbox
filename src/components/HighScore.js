@@ -29,20 +29,37 @@ const StyledHighScore = styled.div`
   }
 `;
 
+const StyledScoreContainer = styled.div`
+  max-width: 400px;
+
+  margin: 0 auto;
+`;
+
+const StyledHeading = styled.h3`
+  color: white;
+  display: block;
+  border-bottom: 2px solid white;
+  padding: 10px 0;
+`;
+
 const HighScore = ({ scores }) => {
   const top = scores.sort((x, y) => x.score - y.score).reverse()[0];
 
   return (
-    <StyledHighScore>
-      <span>⭐</span>
-      <div>
-        <h4>High score</h4>
-        <Score type={top.device} score={top.score} />
-      </div>
-      {/* <p>
-        {top.score} on {top.device}
-      </p> */}
-    </StyledHighScore>
+    // <StyledHighScore>
+    //   <div>
+    //     <h4>High score</h4>
+    //     <Score type={top.device} score={top.score} />
+    //   </div>
+    //   <p>
+    //     {top.score} on {top.device}
+    //   </p>
+    // </StyledHighScore>
+
+    <StyledScoreContainer>
+      <StyledHeading>High Score</StyledHeading>
+      <Score type={top.device} score={top.score} />
+    </StyledScoreContainer>
   );
 };
 

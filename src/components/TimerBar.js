@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TimerContainer = styled.div`
-  height: 100px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;

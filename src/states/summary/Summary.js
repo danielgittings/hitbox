@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import OneHundredVh from '../../components/OneHundredVh';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import FinalScore from '../../components/FinalScore';
@@ -41,7 +43,7 @@ class Summary extends Component {
     const { isHighest } = this.state;
 
     return (
-      <>
+      <OneHundredVh minus={95}>
         <Centraliser>
           {showFinalScore && isHighest ? 'New high score!' : ''}
           {!showFinalScore && (
@@ -62,7 +64,7 @@ class Summary extends Component {
           )}
         </Centraliser>
         <Footer />
-      </>
+      </OneHundredVh>
     );
   }
 }

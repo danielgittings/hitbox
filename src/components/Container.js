@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  max-width: 750px;
+  max-width: 1000px;
   height: 100%;
   margin: 0 auto;
   padding: 20px;

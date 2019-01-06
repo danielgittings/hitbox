@@ -9,7 +9,7 @@ const MainTitle = styled.h1`
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 2rem;
-  margin: 0 0 25px;
+  margin: 0 0 3rem;
   color: ${props => props.theme.primaryText};
   text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
 

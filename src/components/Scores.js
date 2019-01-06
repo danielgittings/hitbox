@@ -5,8 +5,8 @@ import HighScore from '../components/HighScore';
 import RecentScores from '../components/RecentScores';
 
 const StyledScores = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: block;
+  flex-direction: column;
   justify-content: center;
   align-items: stretch;
   margin: 100px 0 50px;
@@ -35,9 +35,9 @@ const StyledScoreContainer = styled.div`
 const Scores = ({ scores }) => {
   return (
     <StyledScores>
-      <StyledScoreContainer>
-        <HighScore scores={scores} />
-      </StyledScoreContainer>
+      {/* <StyledScoreContainer> */}
+      <HighScore scores={scores} />
+      {/* </StyledScoreContainer> */}
       <StyledScoreContainer>
         <RecentScores scores={scores} />
       </StyledScoreContainer>

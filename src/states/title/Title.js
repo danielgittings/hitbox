@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import OneHundredVh from '../../components/OneHundredVh';
 import GameTitle from '../../components/GameTitle';
 import StartButton from '../../components/StartButton';
 import Centraliser from '../../components/Centraliser';
@@ -17,18 +18,14 @@ const SubHeading = styled.h3`
 `;
 
 const Title = ({ startGame }) => (
-  <>
+  <OneHundredVh minus={95}>
     <Centraliser>
       <GameTitle title="CLICKTANGLES" primary />
-      <SubHeading>
-        Click the blue square.
-        <br />
-        As fast as you can.
-      </SubHeading>
+      <SubHeading>Click the blue square.</SubHeading>
       <StartButton startGame={startGame} buttonText={'Start'} />
     </Centraliser>
     <Footer />
-  </>
+  </OneHundredVh>
 );
 
 Title.propTypes = {
