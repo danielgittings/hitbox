@@ -35,7 +35,7 @@ FinalScore.propTypes = {
     PropTypes.shape({
       device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.number.isRequired
+      timestamp: PropTypes.string.isRequired
     })
   )
 };

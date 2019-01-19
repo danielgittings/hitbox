@@ -18,7 +18,7 @@ const SubHeading = styled.h3`
 `;
 
 const Title = ({ startGame }) => (
-  <OneHundredVh minus={95}>
+  <OneHundredVh minus={77}>
     <Centraliser>
       <GameTitle title="CLICKTANGLES" primary />
       <SubHeading>Click the blue square.</SubHeading>

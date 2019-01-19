@@ -43,7 +43,7 @@ class Summary extends Component {
     const { isHighest } = this.state;
 
     return (
-      <OneHundredVh minus={95}>
+      <OneHundredVh minus={77}>
         <Centraliser>
           {showFinalScore && isHighest ? 'New high score!' : ''}
           {!showFinalScore && (
@@ -117,7 +117,7 @@ Summary.propTypes = {
     PropTypes.shape({
       device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.number.isRequired
+      timestamp: PropTypes.string.isRequired
     })
   ).isRequired,
   startGame: PropTypes.func.isRequired

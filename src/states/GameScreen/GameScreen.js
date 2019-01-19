@@ -7,7 +7,7 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 30,
+    secondsLeft: 5,
     countdown: true
   };
 
@@ -29,6 +29,9 @@ class GameScreen extends Component {
       }));
     } else {
       const size = this.props.width > 600 ? 'desktop' : 'mobile';
+
+      const now = new Date();
+      const isoString = now.toISOString();
       this.props.endGame({
         timestamp: Date.now(),
         score: this.state.score,

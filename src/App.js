@@ -114,8 +114,6 @@ class App extends PureComponent {
       showFinalScore
     } = this.state;
 
-    console.log('rendering app');
-
     return (
       <ThemeProvider theme={theme}>
         <StyledApp>

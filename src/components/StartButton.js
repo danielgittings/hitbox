@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StartGameButton = styled.button`
+  margin: 1.5rem 0;
   padding: ${props => props.theme.padding};
   background: transparent;
   outline: none;

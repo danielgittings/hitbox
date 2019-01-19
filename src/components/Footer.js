@@ -9,6 +9,10 @@ const StyledFooter = styled.footer`
   justify-content: space-between;
   color: ${props => props.theme.primaryText};
 
+  p {
+    margin-bottom: 0;
+  }
+
   a {
     color: white;
   }

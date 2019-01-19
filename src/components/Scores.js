@@ -9,38 +9,16 @@ const StyledScores = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  margin: 100px 0 50px;
+  margin: 0;
   width: 100%;
   color: black;
-`;
-
-const StyledScoreContainer = styled.div`
-  width: 100%;
-  background-color: white;
-  padding: ${props => props.theme.padding};
-  margin: 30px 20px 0;
-  display: flex;
-  flex-grow: 1;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.09);
-  border-radius: 5px;
-
-  h4 {
-    margin: 0;
-  }
 `;
 
 const Scores = ({ scores }) => {
   return (
     <StyledScores>
-      {/* <StyledScoreContainer> */}
       <HighScore scores={scores} />
-      {/* </StyledScoreContainer> */}
-      <StyledScoreContainer>
-        <RecentScores scores={scores} />
-      </StyledScoreContainer>
+      <RecentScores scores={scores} />
     </StyledScores>
   );
 };
