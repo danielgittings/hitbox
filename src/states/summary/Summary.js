@@ -43,28 +43,24 @@ class Summary extends Component {
     const { isHighest } = this.state;
 
     return (
-      <OneHundredVh minus={77}>
-        <Centraliser>
-          {showFinalScore && isHighest ? 'New high score!' : ''}
-          {!showFinalScore && (
-            <GameTitle title="CLICKTANGLES" primary={false} />
-          )}
-          {showFinalScore && <FinalScore scores={scores} />}
-          <StartButton
-            startGame={startGame}
-            buttonText={showFinalScore ? 'Play again' : 'Play'}
-          />
+      <>
+        <OneHundredVh minus={77}>
+          <Centraliser>
+            {showFinalScore && isHighest ? 'New high score!' : ''}
+            {!showFinalScore && (
+              <GameTitle title="CLICKTANGLES" primary={false} />
+            )}
+            {showFinalScore && <FinalScore scores={scores} />}
+            <StartButton
+              startGame={startGame}
+              buttonText={showFinalScore ? 'Play again' : 'Play'}
+            />
 
-          {scores.length > 1 && (
-            <>
-              <Scores scores={scores} />
-              {/* <HighScore scores={scores} />
-          <RecentScores scores={scores} /> */}
-            </>
-          )}
-        </Centraliser>
+            {scores.length > 1 && <Scores scores={scores} />}
+          </Centraliser>
+        </OneHundredVh>
         <Footer />
-      </OneHundredVh>
+      </>
     );
   }
 }

@@ -18,14 +18,16 @@ const SubHeading = styled.h3`
 `;
 
 const Title = ({ startGame }) => (
-  <OneHundredVh minus={77}>
-    <Centraliser>
-      <GameTitle title="CLICKTANGLES" primary />
-      <SubHeading>Click the blue square.</SubHeading>
-      <StartButton startGame={startGame} buttonText={'Start'} />
-    </Centraliser>
+  <>
+    <OneHundredVh minus={77}>
+      <Centraliser>
+        <GameTitle title="CLICKTANGLES" primary />
+        <SubHeading>Click the blue square.</SubHeading>
+        <StartButton startGame={startGame} buttonText={'Start'} />
+      </Centraliser>
+    </OneHundredVh>
     <Footer />
-  </OneHundredVh>
+  </>
 );
 
 Title.propTypes = {

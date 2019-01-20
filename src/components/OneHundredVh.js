@@ -33,7 +33,9 @@ class OneHundredvh extends Component {
     const { viewportHeight } = this.state;
 
     return (
-      <div style={{ height: `${viewportHeight}px` }}>{this.props.children}</div>
+      <div style={{ height: `${viewportHeight}px`, overflowY: 'scroll' }}>
+        {this.props.children}
+      </div>
     );
   }
 }

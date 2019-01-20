@@ -9,10 +9,16 @@ import DesktopIcon from '../icons/DesktopIcon';
 const StyledScore = styled.div`
   color: white;
   margin: 5px 0;
+  display: flex;
+  align-items: center;
 
   > span {
     padding: 0 10px 0 0;
   }
+`;
+
+const StyledScoreNumber = styled.span`
+  font-size: 2rem;
 `;
 
 const DEVICE_MAPPING = {
@@ -36,14 +42,12 @@ const Score = ({ type, score, time }) => {
     new Date(year, month, day, hour, minutes, seconds)
   );
 
-  console.log(when);
-
   return (
     <StyledScore>
       <span>
         <DeviceIcon />
       </span>
-      <span>{score}</span>
+      <StyledScoreNumber>{score}</StyledScoreNumber>
       <span>{when} ago</span>
     </StyledScore>
   );
