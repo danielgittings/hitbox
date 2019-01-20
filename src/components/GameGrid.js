@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import tone from '../audio/tone.mp3';
+import OneHundredVh from './OneHundredVh';
 
 const Grid = styled.div`
   display: grid;
@@ -10,22 +11,25 @@ const Grid = styled.div`
     props.width > 600 ? 'repeat(10, 1fr)' : 'repeat(5, 1fr)'};
   grid-auto-rows: auto;
   grid-template-rows: auto;
-  height: calc(100vh - 160px);
-  max-height: 100vh;
+  height: calc(90vh - 170px);
+  height: 100%;
   max-width: 1000px;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
   grid-gap: 10px;
   margin: 0 auto;
-  padding: 0 30px 30px;
+  padding: 30px;
+  border-radius: 5px;
 
   > div {
-    background-color: #eeeeee;
+    /* background-color: #eeeeee; */
+    background-color: rgba(255, 255, 255, 0.9);
     height: 100%;
     width: 100%;
     border-radius: 5px;
 
     &.on {
-      background-color: #91baf9;
+      /* background-color: #91baf9; */
+      background-color: ${props => props.theme.button}
       cursor: pointer;
       transition: all 0.15s ease-in-out;
 
@@ -206,15 +210,17 @@ class GameGrid extends Component {
   render() {
     return (
       <>
-        <Grid width={this.props.width}>
-          {this.state.grid.slice(0, this.state.numCells).map(cell => (
-            <div
-              key={`GameGrid-cell-${cell.id}`}
-              onClick={() => this.clicked(cell)}
-              className={cell.on ? 'on' : null}
-            />
-          ))}
-        </Grid>
+        <OneHundredVh minus={200}>
+          <Grid width={this.props.width}>
+            {this.state.grid.slice(0, this.state.numCells).map(cell => (
+              <div
+                key={`GameGrid-cell-${cell.id}`}
+                onClick={() => this.clicked(cell)}
+                className={cell.on ? 'on' : null}
+              />
+            ))}
+          </Grid>
+        </OneHundredVh>
       </>
     );
   }

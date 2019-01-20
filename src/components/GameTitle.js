@@ -1,14 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-// prettier-ignore
+import media from '../utils/breakpoints';
+
 const MainTitle = styled.h1`
   text-align: center;
-  font-family: sans-serif;
-  font-size: ${props => props.primary ? "5rem" : "3rem"};
-  margin: 0 0 15px;
-  color: #444444;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: ${props => props.theme.primaryText};
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+
+  ${media.tablet`
+    font-size: 3rem;
+  `}
+
+  ${media.desktop`
+    font-size: 4rem;
+  `}
 `;
 
 const GameTitle = ({ title, primary }) => (

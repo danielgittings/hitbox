@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+
+import Container from './components/Container';
 import Title from './states/title/Title';
 import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
@@ -6,14 +10,30 @@ import Countdown from './states/countdown/Countdown';
 import ScreenWidth from './components/ScreenWidth';
 import success from './audio/success.mp3';
 
-class App extends Component {
+import { theme } from './utils/theme';
+
+const StyledApp = styled.div`
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: ${props => props.theme.primaryText};
+  height: 100%;
+  /* background-image: linear-gradient(120deg, #ebedee 0%, #ebedee 100%); */
+  background: rgb(14, 131, 205);
+  background: linear-gradient(
+    180deg,
+    rgba(14, 131, 205, 1) 0%,
+    rgba(13, 99, 153, 1) 100%
+  );
+`;
+
+class App extends PureComponent {
   state = {
     playing: false,
     played: false,
     countingDown: false,
     scores: [],
     success: new Audio(success),
-    showHighScore: false
+    showFinalScore: false
   };
 
   componentDidMount = () => {
@@ -79,53 +99,63 @@ class App extends Component {
     });
   };
 
-  toggleShowHighScore = () => {
+  toggleShowFinalScore = () => {
     this.setState({
-      showHighScore: true
+      showFinalScore: true
     });
   };
 
   render() {
-    const { scores, playing, played, countingDown, showHighScore } = this.state;
+    const {
+      scores,
+      playing,
+      played,
+      countingDown,
+      showFinalScore
+    } = this.state;
 
     return (
-      <div style={{ height: '100%' }}>
-        {!playing && !played && (
-          <>
-            <Title startGame={this.startGame} />
-          </>
-        )}
+      <ThemeProvider theme={theme}>
+        <StyledApp>
+          <Container>
+            {!playing && !played && (
+              <>
+                <Title startGame={this.startGame} />
+              </>
+            )}
 
-        {!playing && played && (
-          <>
-            <Summary
-              showHighScore={showHighScore}
-              scores={scores}
-              startGame={this.startGame}
-            />
-          </>
-        )}
-
-        {playing && countingDown && (
-          <Countdown endCountdown={this.endCountdown} />
-        )}
-
-        {playing && !countingDown && (
-          <>
-            <ScreenWidth>
-              {width => (
-                <GameScreen
-                  width={width}
-                  toggleShowHighScore={this.toggleShowHighScore}
-                  markAsPlayed={this.markAsPlayed}
-                  addNewScore={this.addNewScore}
-                  endGame={this.endGame}
+            {!playing && played && (
+              <>
+                <Summary
+                  showFinalScore={showFinalScore}
+                  scores={scores}
+                  startGame={this.startGame}
                 />
-              )}
-            </ScreenWidth>
-          </>
-        )}
-      </div>
+              </>
+            )}
+
+            {playing && countingDown && (
+              <Countdown endCountdown={this.endCountdown} />
+            )}
+
+            {playing && !countingDown && (
+              <>
+                <ScreenWidth>
+                  {width => (
+                    <GameScreen
+                      width={width}
+                      toggleShowFinalScore={this.toggleShowFinalScore}
+                      markAsPlayed={this.markAsPlayed}
+                      addNewScore={this.addNewScore}
+                      endGame={this.endGame}
+                    />
+                  )}
+                </ScreenWidth>
+              </>
+            )}
+          </Container>
+        </StyledApp>
+      </ThemeProvider>
     );
   }
 }

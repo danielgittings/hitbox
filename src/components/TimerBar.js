@@ -3,17 +3,19 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const TimerContainer = styled.div`
-  height: 130px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   h2 {
     text-align: center;
-    font-size: 50px;
+    font-size: 60px;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-weight: 300;
+    color: ${props => props.theme.white};
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
   }
 `;
 

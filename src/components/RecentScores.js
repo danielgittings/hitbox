@@ -1,28 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const PreviousScores = ({ scores }) => (
-  <>
-    <h4>Recent scores</h4>
-    <ul>
+import Score from './Score';
+
+const StyledScoreContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+`;
+
+const StyledHeading = styled.h3`
+  color: white;
+  display: block;
+  border-bottom: 2px solid white;
+  padding: 10px 0;
+`;
+
+const PreviousScores = ({ scores }) => {
+  return (
+    <StyledScoreContainer>
+      <StyledHeading>Recent scores</StyledHeading>
       {scores
         .sort((a, b) => b.timestamp - a.timestamp)
         .slice(0, 5)
         .map(score => (
-          <li key={score.timestamp}>
-            {score.score} on {score.device}
-          </li>
+          <Score
+            key={score.timestamp}
+            type={score.device}
+            score={score.score}
+            time={score.timestamp}
+          />
         ))}
-    </ul>
-  </>
-);
+    </StyledScoreContainer>
+  );
+};
 
 PreviousScores.propTypes = {
   scores: PropTypes.arrayOf(
     PropTypes.shape({
       device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.number.isRequired
+      timestamp: PropTypes.string.isRequired
     })
   )
 };
