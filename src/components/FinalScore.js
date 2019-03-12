@@ -12,11 +12,13 @@ const StyledScoreContainer = styled.div`
 
 const StyledScore = styled.span`
   font-size: 8rem;
+  color: #333;
 `;
 
 const StyledText = styled.span`
   font-size: 1.5rem;
   font-family: 300;
+  color: #333;
 `;
 
 const FinalScore = ({ scores }) => {

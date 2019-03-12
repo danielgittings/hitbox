@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Score from '../components/Score';
+import Score from './Score';
 
 const StyledScoreContainer = styled.div`
   max-width: 400px;
@@ -10,7 +10,7 @@ const StyledScoreContainer = styled.div`
 `;
 
 const StyledHeading = styled.h3`
-  color: white;
+  color: #333;
   display: block;
   border-bottom: 2px solid white;
   padding: 10px 0;

@@ -11,7 +11,8 @@ import Footer from '../../components/Footer';
 const SubHeading = styled.h3`
   font-size: 30px;
   margin: 0 0 4rem;
-  color: ${props => props.theme.primaryText};
+  /* color: ${props => props.theme.primaryText}; */
+  color: #333;
   font-weight: 300;
   text-align: center;
   line-height: 2.5rem;
@@ -23,7 +24,7 @@ const Title = ({ startGame }) => (
       <Centraliser>
         <GameTitle title="CLICKTANGLES" primary />
         <SubHeading>Click the blue square.</SubHeading>
-        <StartButton startGame={startGame} buttonText={'Start'} />
+        <StartButton func={startGame} buttonText={'Start'} />
       </Centraliser>
     </OneHundredVh>
     <Footer />

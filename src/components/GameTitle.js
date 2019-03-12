@@ -10,7 +10,8 @@ const MainTitle = styled.h1`
   font-weight: 300;
   font-size: 2rem;
   margin: 0 0 0.5rem;
-  color: ${props => props.theme.primaryText};
+  /* color: ${props => props.theme.primaryText}; */
+  color: #333;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
 
   ${media.tablet`

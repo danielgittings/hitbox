@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import HighScore from '../components/HighScore';
+import HighScore from './HighScore';
 import RecentScores from '../components/RecentScores';
 
 const StyledScores = styled.div`
@@ -14,9 +14,10 @@ const StyledScores = styled.div`
   color: black;
 `;
 
-const Scores = ({ scores }) => {
+const Scores = ({ scores, goBack }) => {
   return (
     <StyledScores>
+      <button onClick={goBack}>{'<- Go back'}</button>
       <HighScore scores={scores} />
       <RecentScores scores={scores} />
     </StyledScores>

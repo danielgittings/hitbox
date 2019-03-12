@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StartGameButton = styled.button`
-  margin: 1.5rem 0;
+  margin: 0;
   padding: ${props => props.theme.padding};
   background: transparent;
   outline: none;
@@ -12,13 +12,21 @@ const StartGameButton = styled.button`
   background-color: ${props => props.theme.button}
   color: ${props => props.theme.white};
   text-transform: uppercase;
-  padding: 20px 80px;
+  padding: 20px;
   cursor: pointer;
   font-size: 1.2rem;
   border-radius: 5px;
   font-weight: 300;
   transition: all 0.15s ease-in-out;
-  border: 2px solid rgba(255, 255, 255, .4);
+  /* border: 2px solid rgba(255, 255, 255, .4); */
+
+  ${props =>
+    props.secondary &&
+    css`
+      background-color: yellowgreen;
+      color: white;
+      margin-top: 10px;
+    `}
 
   &:hover,
   &:active,
@@ -28,8 +36,10 @@ const StartGameButton = styled.button`
   }
 `;
 
-const StartButton = ({ startGame, buttonText }) => (
-  <StartGameButton onClick={startGame}>{buttonText}</StartGameButton>
+const StartButton = ({ func, buttonText, secondary }) => (
+  <StartGameButton secondary={secondary} onClick={func}>
+    {buttonText}
+  </StartGameButton>
 );
 
 StartButton.propTypes = {

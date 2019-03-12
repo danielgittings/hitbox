@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import OneHundredVh from '../../components/OneHundredVh';
 import GameTitle from '../../components/GameTitle';
@@ -8,10 +9,39 @@ import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
 import Scores from '../../components/Scores';
 import Footer from '../../components/Footer';
+import NewHighScore from '../../components/NewHighScore';
+
+import media from '../../utils/breakpoints';
+
+const StyledSummary = styled.div`
+  background-color: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 5px;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  ${media.tablet`
+    padding: 50px;
+  `}
+`;
+
+const StyledRecentButton = styled.button`
+  background-color: yellowgreen;
+  padding: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+`;
 
 class Summary extends Component {
   state = {
-    isHighest: false
+    isHighest: false,
+    score: true,
+    recents: false
   };
 
   componentDidMount() {
@@ -38,25 +68,73 @@ class Summary extends Component {
     }
   }
 
+  showRecents = () => {
+    this.setState({
+      score: false,
+      recents: true
+    });
+  };
+
+  showScore = () => {
+    this.setState({
+      score: true,
+      recents: false
+    });
+  };
+
   render() {
     const { scores, showFinalScore, startGame } = this.props;
-    const { isHighest } = this.state;
+    const { isHighest, recents, score } = this.state;
 
     return (
       <>
         <OneHundredVh minus={77}>
           <Centraliser>
-            {showFinalScore && isHighest ? 'New high score!' : ''}
-            {!showFinalScore && (
-              <GameTitle title="CLICKTANGLES" primary={false} />
-            )}
-            {showFinalScore && <FinalScore scores={scores} />}
-            <StartButton
-              startGame={startGame}
-              buttonText={showFinalScore ? 'Play again' : 'Play'}
-            />
+            <StyledSummary>
+              {score && (
+                <div
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
+                  <div>
+                    {!showFinalScore && (
+                      <GameTitle title="CLICKTANGLES" primary={false} />
+                    )}
+                    {showFinalScore && <FinalScore scores={scores} />}
+                    {showFinalScore && isHighest && <NewHighScore />}
+                  </div>
 
-            {scores.length > 1 && <Scores scores={scores} />}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      padding: '40px 10px 0'
+                    }}
+                  >
+                    <StartButton
+                      func={startGame}
+                      buttonText={showFinalScore ? 'Play again' : 'Play'}
+                    />
+                    {!recents && scores.length > 1 && (
+                      <StartButton
+                        buttonText="Show recent"
+                        secondary
+                        func={this.showRecents}
+                      />
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {recents && scores.length > 1 && (
+                <Scores goBack={this.showScore} scores={scores} />
+              )}
+            </StyledSummary>
           </Centraliser>
         </OneHundredVh>
         <Footer />

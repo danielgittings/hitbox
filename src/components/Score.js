@@ -7,7 +7,7 @@ import PhoneIcon from '../icons/PhoneIcon';
 import DesktopIcon from '../icons/DesktopIcon';
 
 const StyledScore = styled.div`
-  color: white;
+  color: #333;
   margin: 5px 0;
   display: flex;
   align-items: center;
