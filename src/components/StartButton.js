@@ -12,26 +12,30 @@ const StartGameButton = styled.button`
   background-color: ${props => props.theme.button}
   color: ${props => props.theme.white};
   text-transform: uppercase;
-  padding: 20px;
+  padding: 20px 30px;
   cursor: pointer;
   font-size: 1.2rem;
   border-radius: 5px;
-  font-weight: 300;
+  font-weight: 400;
   transition: all 0.15s ease-in-out;
   /* border: 2px solid rgba(255, 255, 255, .4); */
 
   ${props =>
     props.secondary &&
     css`
-      background-color: yellowgreen;
-      color: white;
+      background-color: rgba(0, 0, 0, 0.15);
+      color: #535353;
       margin-top: 10px;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
     `}
 
   &:hover,
   &:active,
   &:focus {
-    border: 2px solid rgba(255, 255, 255, 0.75);
+    /* border: 2px solid rgba(255, 255, 255, 0.75); */
     /* background-color: ${props => props.theme.buttonHover} */
   }
 `;
@@ -43,7 +47,8 @@ const StartButton = ({ func, buttonText, secondary }) => (
 );
 
 StartButton.propTypes = {
-  startGame: PropTypes.func.isRequired,
+  func: PropTypes.func.isRequired,
+  secondary: PropTypes.bool,
   buttonText: PropTypes.string.isRequired
 };
 

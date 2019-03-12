@@ -14,10 +14,16 @@ const StyledScores = styled.div`
   color: black;
 `;
 
+const StyledBackButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+`;
+
 const Scores = ({ scores, goBack }) => {
   return (
     <StyledScores>
-      <button onClick={goBack}>{'<- Go back'}</button>
+      <StyledBackButton onClick={goBack}>&larr; Back</StyledBackButton>
       <HighScore scores={scores} />
       <RecentScores scores={scores} />
     </StyledScores>

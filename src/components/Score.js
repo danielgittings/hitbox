@@ -26,6 +26,10 @@ const DEVICE_MAPPING = {
   desktop: DesktopIcon
 };
 
+const StyledTime = styled.span`
+  color: #333;
+`;
+
 const Score = ({ type, score, time }) => {
   const DeviceIcon = DEVICE_MAPPING[type];
 
@@ -44,11 +48,11 @@ const Score = ({ type, score, time }) => {
 
   return (
     <StyledScore>
-      <span>
+      {/* <span>
         <DeviceIcon />
-      </span>
+      </span> */}
       <StyledScoreNumber>{score}</StyledScoreNumber>
-      <span>{when} ago</span>
+      <StyledTime>{when} ago</StyledTime>
     </StyledScore>
   );
 };

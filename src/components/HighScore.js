@@ -6,14 +6,17 @@ import Score from './Score';
 
 const StyledScoreContainer = styled.div`
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const StyledHeading = styled.h3`
   color: #333;
   display: block;
   border-bottom: 2px solid white;
-  padding: 10px 0;
+  margin: 20px 0 10px;
 `;
 
 const HighScore = ({ scores }) => {
