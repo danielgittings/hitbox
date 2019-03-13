@@ -8,8 +8,9 @@ import DesktopIcon from '../icons/DesktopIcon';
 
 const StyledScore = styled.div`
   color: #333;
-  margin: 5px 0;
+  margin: 10px 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
 
   > span {
@@ -18,7 +19,8 @@ const StyledScore = styled.div`
 `;
 
 const StyledScoreNumber = styled.span`
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: #333;
 `;
 
 const DEVICE_MAPPING = {
@@ -28,6 +30,12 @@ const DEVICE_MAPPING = {
 
 const StyledTime = styled.span`
   color: #333;
+  margin: 5px 0;
+  font-size: 0.95rem;
+`;
+
+const StyledTimeIcon = styled.span`
+  font-size: 1.25rem;
 `;
 
 const Score = ({ type, score, time }) => {

@@ -10,23 +10,25 @@ const StyledScoreContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 30px;
 `;
 
 const StyledHeading = styled.h3`
   color: #333;
   display: block;
   border-bottom: 2px solid white;
-  margin: 20px 0 10px;
+  margin: 0 0 15px;
+  font-size: 1.5rem;
 `;
 
 const PreviousScores = ({ scores }) => {
   return (
     <StyledScoreContainer>
-      <StyledHeading>Recent scores</StyledHeading>
+      <StyledHeading>Latest scores</StyledHeading>
       <div>
         {scores
           .sort((a, b) => b.timestamp - a.timestamp)
-          .slice(0, 5)
+          .slice(0, 3)
           .map(score => (
             <Score
               key={score.timestamp}

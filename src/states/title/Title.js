@@ -11,7 +11,7 @@ import Footer from '../../components/Footer';
 import media from '../../utils/breakpoints';
 
 const SubHeading = styled.h3`
-  font-size: 20px;
+  font-size: 1.7rem;
   margin: 0 0 4rem;
   /* color: ${props => props.theme.primaryText}; */
   color: #cab5be;

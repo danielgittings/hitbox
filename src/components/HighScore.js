@@ -6,17 +6,23 @@ import Score from './Score';
 
 const StyledScoreContainer = styled.div`
   max-width: 400px;
-  margin: 0 auto 20px;
+  margin: 0;
+  padding: 30px 30px 20px;
+  background-color: #0b639a;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const StyledHeading = styled.h3`
-  color: #333;
+  color: white;
   display: block;
-  border-bottom: 2px solid white;
-  margin: 20px 0 10px;
+  margin: 0;
+`;
+
+const StyledTrophy = styled.span`
+  font-size: 7rem;
+  color: white;
 `;
 
 const HighScore = ({ scores }) => {
@@ -25,7 +31,10 @@ const HighScore = ({ scores }) => {
   return (
     <StyledScoreContainer>
       <StyledHeading>High Score</StyledHeading>
-      <Score type={top.device} score={top.score} time={top.timestamp} />
+      <StyledTrophy role="img" aria-label="Trophy">
+        {top.score}
+      </StyledTrophy>
+      {/* <Score type={top.device} score={top.score} time={top.timestamp} /> */}
     </StyledScoreContainer>
   );
 };

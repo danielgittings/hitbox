@@ -18,14 +18,14 @@ const StyledSummary = styled.div`
   width: 100%;
   max-width: 500px;
   border-radius: 5px;
-  padding: 30px;
+  /* padding: 30px; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   ${media.tablet`
-    padding: 50px;
+    /* padding: 40px; */
   `}
 `;
 
@@ -88,56 +88,55 @@ class Summary extends Component {
 
     return (
       <>
-        <OneHundredVh minus={77}>
-          <Centraliser>
-            <StyledSummary>
-              {score && (
+        <Centraliser>
+          <StyledSummary>
+            {score && (
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <div>
+                  {!showFinalScore && (
+                    <GameTitle title="CLICKTANGLES" primary={false} />
+                  )}
+                  {showFinalScore && <FinalScore scores={scores} />}
+                  {showFinalScore && isHighest && <NewHighScore />}
+                </div>
+
                 <div
                   style={{
-                    width: '100%',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
-                    alignItems: 'center'
+                    padding: '40px 10px 0'
                   }}
                 >
-                  <div>
-                    {!showFinalScore && (
-                      <GameTitle title="CLICKTANGLES" primary={false} />
-                    )}
-                    {showFinalScore && <FinalScore scores={scores} />}
-                    {showFinalScore && isHighest && <NewHighScore />}
-                  </div>
-
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      padding: '40px 10px 0'
-                    }}
-                  >
+                  <StartButton
+                    func={startGame}
+                    buttonText={showFinalScore ? 'Play again' : 'Play'}
+                  />
+                  {!recents && scores.length > 1 && (
                     <StartButton
-                      func={startGame}
-                      buttonText={showFinalScore ? 'Play again' : 'Play'}
+                      buttonText="Show recent"
+                      secondary
+                      func={this.showRecents}
                     />
-                    {!recents && scores.length > 1 && (
-                      <StartButton
-                        buttonText="Show recent"
-                        secondary
-                        func={this.showRecents}
-                      />
-                    )}
-                  </div>
+                  )}
                 </div>
-              )}
+              </div>
+            )}
 
-              {recents && scores.length > 1 && (
-                <Scores goBack={this.showScore} scores={scores} />
-              )}
-            </StyledSummary>
-          </Centraliser>
-        </OneHundredVh>
-        <Footer />
+            {recents && scores.length > 1 && (
+              <Scores goBack={this.showScore} scores={scores} />
+            )}
+          </StyledSummary>
+        </Centraliser>
+
+        {/* <Footer /> */}
       </>
     );
   }

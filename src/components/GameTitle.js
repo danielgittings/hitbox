@@ -19,7 +19,7 @@ const MainTitle = styled.h1`
   `}
 
   ${media.desktop`
-    font-size: 4rem;
+    font-size: 3rem;
   `}
 `;
 
