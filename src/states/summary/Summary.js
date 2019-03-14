@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import GameTitle from '../../components/GameTitle';
-import StartButton from '../../components/StartButton';
+import Button from '../../components/Button';
 import FinalScore from '../../components/FinalScore';
 import Centraliser from '../../components/Centraliser';
 import Scores from '../../components/Scores';
@@ -23,6 +23,14 @@ const StyledRecentButton = styled.button`
   border-radius: 5px;
 `;
 
+const SubHeading = styled.h3`
+  font-size: 2rem;
+  margin: 10px 0 0;
+  color: #888;
+  font-weight: 300;
+  text-align: center;
+  line-height: 2.5rem;
+`;
 class Summary extends Component {
   state = {
     isHighest: false,
@@ -81,6 +89,7 @@ class Summary extends Component {
                 {!showFinalScore && (
                   <StyledPadding30Col>
                     <GameTitle title="CLICKTANGLES" primary={false} />
+                    <SubHeading>Click the blue one.</SubHeading>
                   </StyledPadding30Col>
                 )}
                 {showFinalScore && <FinalScore scores={scores} />}
@@ -88,12 +97,12 @@ class Summary extends Component {
               </div>
 
               <StyledPadding30Col>
-                <StartButton
+                <Button
                   func={startGame}
                   buttonText={showFinalScore ? 'Play again' : 'Play'}
                 />
                 {!recents && scores.length > 1 && (
-                  <StartButton
+                  <Button
                     buttonText="Show recent"
                     secondary
                     func={this.showRecents}

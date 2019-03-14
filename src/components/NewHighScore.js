@@ -4,20 +4,25 @@ import styled from 'styled-components';
 const StyledHighScore = styled.p`
   font-size: 1.5rem;
   margin: 1rem 0;
-  color: ${props => props.theme.button};
+  color: #269f26;
   text-align: center;
+  text-transform: uppercase;
+`;
+
+const StyledEmoji = styled.span`
+  margin: 0 10px;
 `;
 
 const HighScore = () => {
   return (
     <StyledHighScore>
-      <span role="img" aria-label="Trophy">
+      <StyledEmoji role="img" aria-label="Trophy emoji">
         🏆
-      </span>{' '}
-      New high score!{' '}
-      <span role="img" aria-label="Fire">
+      </StyledEmoji>
+      New high score!
+      <StyledEmoji role="img" aria-label="Fire emoji">
         🔥
-      </span>
+      </StyledEmoji>
     </StyledHighScore>
   );
 };

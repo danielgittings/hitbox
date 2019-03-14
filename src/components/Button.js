@@ -16,9 +16,11 @@ const StartGameButton = styled.button`
   cursor: pointer;
   font-size: 1.2rem;
   border-radius: 5px;
-  font-weight: 400;
+  /* font-weight: 400; */
   transition: all 0.15s ease-in-out;
-  /* border: 2px solid rgba(255, 255, 255, .4); */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+
 
   ${props =>
     props.secondary &&
@@ -31,25 +33,18 @@ const StartGameButton = styled.button`
         background-color: rgba(0, 0, 0, 0.2);
       }
     `}
-
-  &:hover,
-  &:active,
-  &:focus {
-    /* border: 2px solid rgba(255, 255, 255, 0.75); */
-    /* background-color: ${props => props.theme.buttonHover} */
-  }
 `;
 
-const StartButton = ({ func, buttonText, secondary }) => (
+const Button = ({ func, buttonText, secondary }) => (
   <StartGameButton secondary={secondary} onClick={func}>
     {buttonText}
   </StartGameButton>
 );
 
-StartButton.propTypes = {
+Button.propTypes = {
   func: PropTypes.func.isRequired,
   secondary: PropTypes.bool,
   buttonText: PropTypes.string.isRequired
 };
 
-export default StartButton;
+export default Button;

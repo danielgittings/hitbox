@@ -13,7 +13,8 @@ import success from './audio/success.mp3';
 import { theme } from './utils/theme';
 
 const StyledApp = styled.div`
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   color: ${props => props.theme.primaryText};
   height: 100%;
@@ -117,20 +118,14 @@ class App extends PureComponent {
       <ThemeProvider theme={theme}>
         <StyledApp>
           <Container>
-            {!playing && !played && (
-              <>
-                <Title startGame={this.startGame} />
-              </>
-            )}
+            {!playing && !played && <Title startGame={this.startGame} />}
 
             {!playing && played && (
-              <>
-                <Summary
-                  showFinalScore={showFinalScore}
-                  scores={scores}
-                  startGame={this.startGame}
-                />
-              </>
+              <Summary
+                showFinalScore={showFinalScore}
+                scores={scores}
+                startGame={this.startGame}
+              />
             )}
 
             {playing && countingDown && (
@@ -138,19 +133,17 @@ class App extends PureComponent {
             )}
 
             {playing && !countingDown && (
-              <>
-                <ScreenWidth>
-                  {width => (
-                    <GameScreen
-                      width={width}
-                      toggleShowFinalScore={this.toggleShowFinalScore}
-                      markAsPlayed={this.markAsPlayed}
-                      addNewScore={this.addNewScore}
-                      endGame={this.endGame}
-                    />
-                  )}
-                </ScreenWidth>
-              </>
+              <ScreenWidth>
+                {width => (
+                  <GameScreen
+                    width={width}
+                    toggleShowFinalScore={this.toggleShowFinalScore}
+                    markAsPlayed={this.markAsPlayed}
+                    addNewScore={this.addNewScore}
+                    endGame={this.endGame}
+                  />
+                )}
+              </ScreenWidth>
             )}
           </Container>
         </StyledApp>

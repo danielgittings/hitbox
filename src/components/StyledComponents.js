@@ -6,7 +6,7 @@ export const StyledWhiteWrapper = styled.div`
   width: 100%;
   height: 100%;
   max-height: 100%;
-  max-width: 500px;
+  max-width: 600px;
   border-radius: 5px;
   display: flex;
   justify-content: center;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import GameTitle from '../../components/GameTitle';
-import StartButton from '../../components/StartButton';
+import Button from '../../components/Button';
 import Centraliser from '../../components/Centraliser';
 
 import {
@@ -12,9 +12,9 @@ import {
 } from '../../components/StyledComponents';
 
 const SubHeading = styled.h3`
-  font-size: 1.7rem;
-  margin: 0 0 4rem;
-  color: #cab5be;
+  font-size: 2rem;
+  margin: 10px 0 0;
+  color: #888;
   font-weight: 300;
   text-align: center;
   line-height: 2.5rem;
@@ -25,8 +25,10 @@ const Title = ({ startGame }) => (
     <StyledWhiteWrapper>
       <StyledPadding30Col>
         <GameTitle title="CLICKTANGLES" primary />
-        <SubHeading>Click the blue square.</SubHeading>
-        <StartButton func={startGame} buttonText={'Play'} />
+        <SubHeading>Click the blue one.</SubHeading>
+      </StyledPadding30Col>
+      <StyledPadding30Col>
+        <Button func={startGame} buttonText={'Play'} />
       </StyledPadding30Col>
     </StyledWhiteWrapper>
   </Centraliser>

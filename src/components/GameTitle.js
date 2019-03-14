@@ -6,20 +6,24 @@ import media from '../utils/breakpoints';
 
 const MainTitle = styled.h1`
   text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 2rem;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
   margin: 0 0 0.5rem;
-  /* color: ${props => props.theme.primaryText}; */
   color: #333;
-  /* text-shadow: 2px 2px rgba(0, 0, 0, 0.05); */
+  /* letter-spacing: 4.5px; */
 
-  ${media.tablet`
-    font-size: 3rem;
+  ${media.mdPhone`
+    font-size: 2.1rem;
   `}
 
-  ${media.desktop`
-    font-size: 3rem;
+  ${media.bigPhone`
+    font-size: 3.65rem;
+  `}
+
+  ${media.tablet`
+    font-size: 4rem;
   `}
 `;
 
