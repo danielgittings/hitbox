@@ -28,7 +28,7 @@ const PreviousScores = ({ scores }) => {
       <div>
         {scores
           .sort((a, b) => b.timestamp - a.timestamp)
-          .slice(0, 3)
+          .slice(0, 5)
           .map(score => (
             <Score
               key={score.timestamp}

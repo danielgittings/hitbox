@@ -6,14 +6,11 @@ import RecentScores from '../components/RecentScores';
 
 const StyledScores = styled.div`
   display: block;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+  overflow-y: auto;
   margin: 0;
   width: 100%;
   color: black;
   border-radius: 5px;
-  overflow: hidden;
 `;
 
 const StyledBackButton = styled.button`
@@ -29,12 +26,19 @@ const StyledBackButton = styled.button`
   }
 `;
 
+const StyledStickyHeader = styled.div`
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-radius: 5px 5px 0 0;
+`;
+
 const Scores = ({ scores, goBack }) => {
   return (
     <StyledScores>
-      <div style={{ position: 'sticky', top: 0, backgroundColor: 'white' }}>
+      <StyledStickyHeader>
         <StyledBackButton onClick={goBack}>&larr; Back</StyledBackButton>
-      </div>
+      </StyledStickyHeader>
       <HighScore scores={scores} />
       <RecentScores scores={scores} />
     </StyledScores>

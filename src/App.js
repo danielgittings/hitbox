@@ -17,7 +17,6 @@ const StyledApp = styled.div`
   font-weight: 300;
   color: ${props => props.theme.primaryText};
   height: 100%;
-  /* background-image: linear-gradient(120deg, #ebedee 0%, #ebedee 100%); */
   background: rgb(14, 131, 205);
   background: linear-gradient(
     180deg,

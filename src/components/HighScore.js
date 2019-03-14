@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import Score from './Score';
 
 const StyledScoreContainer = styled.div`
-  max-width: 400px;
   margin: 0;
   padding: 30px 30px 20px;
   background-color: #0b639a;

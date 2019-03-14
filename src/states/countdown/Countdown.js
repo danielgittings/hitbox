@@ -41,11 +41,9 @@ class Countdown extends Component {
     const { secondsLeft } = this.state;
 
     return (
-      <>
-        <Centraliser>
-          <CountdownNumber>{Math.round(secondsLeft / 1000)}</CountdownNumber>
-        </Centraliser>
-      </>
+      <Centraliser>
+        <CountdownNumber>{Math.round(secondsLeft / 1000)}</CountdownNumber>
+      </Centraliser>
     );
   }
 }
