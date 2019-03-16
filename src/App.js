@@ -8,7 +8,6 @@ import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
 import Countdown from './states/countdown/Countdown';
 import ScreenWidth from './components/ScreenWidth';
-import success from './audio/success.mp3';
 
 import { theme } from './utils/theme';
 
@@ -32,7 +31,6 @@ class App extends PureComponent {
     played: false,
     countingDown: false,
     scores: [],
-    success: new Audio(success),
     showFinalScore: false
   };
 
@@ -68,16 +66,6 @@ class App extends PureComponent {
   };
 
   endGame = score => {
-    const { success, scores } = this.state;
-
-    if (scores.length === 0) {
-      success.play();
-    } else if (
-      score.score > Math.max.apply(Math, scores.map(item => item.score))
-    ) {
-      success.play();
-    }
-
     this.setState(
       prevState => ({
         playing: false,
