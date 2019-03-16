@@ -2,32 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import OneHundredVh from '../../components/OneHundredVh';
 import GameTitle from '../../components/GameTitle';
-import StartButton from '../../components/StartButton';
+import Button from '../../components/Button';
 import Centraliser from '../../components/Centraliser';
-import Footer from '../../components/Footer';
+
+import {
+  StyledWhiteWrapper,
+  StyledPadding30Col
+} from '../../components/StyledComponents';
 
 const SubHeading = styled.h3`
-  font-size: 30px;
-  margin: 0 0 4rem;
-  color: ${props => props.theme.primaryText};
+  font-size: 2rem;
+  margin: 10px 0 0;
+  color: #888;
   font-weight: 300;
   text-align: center;
   line-height: 2.5rem;
 `;
 
 const Title = ({ startGame }) => (
-  <>
-    <OneHundredVh minus={77}>
-      <Centraliser>
+  <Centraliser>
+    <StyledWhiteWrapper>
+      <StyledPadding30Col>
         <GameTitle title="CLICKTANGLES" primary />
-        <SubHeading>Click the blue square.</SubHeading>
-        <StartButton startGame={startGame} buttonText={'Start'} />
-      </Centraliser>
-    </OneHundredVh>
-    <Footer />
-  </>
+        <SubHeading>Click the blue one.</SubHeading>
+      </StyledPadding30Col>
+      <StyledPadding30Col>
+        <Button func={startGame} buttonText={'Play'} />
+      </StyledPadding30Col>
+    </StyledWhiteWrapper>
+  </Centraliser>
 );
 
 Title.propTypes = {

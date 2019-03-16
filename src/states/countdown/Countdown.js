@@ -7,6 +7,7 @@ const CountdownNumber = styled.p`
   font-size: 15rem;
   font-weight: 300;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
+  font-family: 'Montserrat', sans-serif;
   margin: 0;
 `;
 
@@ -41,11 +42,9 @@ class Countdown extends Component {
     const { secondsLeft } = this.state;
 
     return (
-      <>
-        <Centraliser>
-          <CountdownNumber>{Math.round(secondsLeft / 1000)}</CountdownNumber>
-        </Centraliser>
-      </>
+      <Centraliser>
+        <CountdownNumber>{Math.round(secondsLeft / 1000)}</CountdownNumber>
+      </Centraliser>
     );
   }
 }

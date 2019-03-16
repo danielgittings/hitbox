@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import tone from '../audio/tone.mp3';
 import OneHundredVh from './OneHundredVh';
 
 const Grid = styled.div`
@@ -145,18 +144,12 @@ class GameGrid extends Component {
       { id: 99, on: false },
       { id: 100, on: false }
     ],
-    audio: new Audio(tone),
     numCells: null,
     previousCell: null
   };
 
   clicked = cell => {
-    const { audio } = this.state;
-
     if (cell.on) {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.play();
       this.props.addPoint();
       this.newCell();
     }

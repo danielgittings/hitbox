@@ -8,16 +8,15 @@ import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
 import Countdown from './states/countdown/Countdown';
 import ScreenWidth from './components/ScreenWidth';
-import success from './audio/success.mp3';
 
 import { theme } from './utils/theme';
 
 const StyledApp = styled.div`
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   color: ${props => props.theme.primaryText};
   height: 100%;
-  /* background-image: linear-gradient(120deg, #ebedee 0%, #ebedee 100%); */
   background: rgb(14, 131, 205);
   background: linear-gradient(
     180deg,
@@ -32,7 +31,6 @@ class App extends PureComponent {
     played: false,
     countingDown: false,
     scores: [],
-    success: new Audio(success),
     showFinalScore: false
   };
 
@@ -68,16 +66,6 @@ class App extends PureComponent {
   };
 
   endGame = score => {
-    const { success, scores } = this.state;
-
-    if (scores.length === 0) {
-      success.play();
-    } else if (
-      score.score > Math.max.apply(Math, scores.map(item => item.score))
-    ) {
-      success.play();
-    }
-
     this.setState(
       prevState => ({
         playing: false,
@@ -118,20 +106,14 @@ class App extends PureComponent {
       <ThemeProvider theme={theme}>
         <StyledApp>
           <Container>
-            {!playing && !played && (
-              <>
-                <Title startGame={this.startGame} />
-              </>
-            )}
+            {!playing && !played && <Title startGame={this.startGame} />}
 
             {!playing && played && (
-              <>
-                <Summary
-                  showFinalScore={showFinalScore}
-                  scores={scores}
-                  startGame={this.startGame}
-                />
-              </>
+              <Summary
+                showFinalScore={showFinalScore}
+                scores={scores}
+                startGame={this.startGame}
+              />
             )}
 
             {playing && countingDown && (
@@ -139,19 +121,17 @@ class App extends PureComponent {
             )}
 
             {playing && !countingDown && (
-              <>
-                <ScreenWidth>
-                  {width => (
-                    <GameScreen
-                      width={width}
-                      toggleShowFinalScore={this.toggleShowFinalScore}
-                      markAsPlayed={this.markAsPlayed}
-                      addNewScore={this.addNewScore}
-                      endGame={this.endGame}
-                    />
-                  )}
-                </ScreenWidth>
-              </>
+              <ScreenWidth>
+                {width => (
+                  <GameScreen
+                    width={width}
+                    toggleShowFinalScore={this.toggleShowFinalScore}
+                    markAsPlayed={this.markAsPlayed}
+                    addNewScore={this.addNewScore}
+                    endGame={this.endGame}
+                  />
+                )}
+              </ScreenWidth>
             )}
           </Container>
         </StyledApp>

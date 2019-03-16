@@ -7,12 +7,12 @@ class GameScreen extends Component {
   state = {
     score: 0,
     timer: null,
-    secondsLeft: 5,
+    secondsLeft: 30400,
     countdown: true
   };
 
   componentDidMount = () => {
-    const timer = setInterval(this.decrementSeconds, 1000);
+    const timer = setInterval(this.decrementSeconds, 100);
     this.setState({
       timer
     });
@@ -23,9 +23,9 @@ class GameScreen extends Component {
   };
 
   decrementSeconds = () => {
-    if (this.state.secondsLeft > 0) {
+    if (this.state.secondsLeft > 500) {
       this.setState(prevState => ({
-        secondsLeft: prevState.secondsLeft - 1
+        secondsLeft: prevState.secondsLeft - 100
       }));
     } else {
       const size = this.props.width > 600 ? 'desktop' : 'mobile';

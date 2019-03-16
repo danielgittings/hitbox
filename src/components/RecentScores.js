@@ -7,30 +7,37 @@ import Score from './Score';
 const StyledScoreContainer = styled.div`
   max-width: 400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
 `;
 
 const StyledHeading = styled.h3`
-  color: white;
+  color: #333;
   display: block;
   border-bottom: 2px solid white;
-  padding: 10px 0;
+  margin: 0 0 15px;
+  font-size: 1.5rem;
 `;
 
 const PreviousScores = ({ scores }) => {
   return (
     <StyledScoreContainer>
-      <StyledHeading>Recent scores</StyledHeading>
-      {scores
-        .sort((a, b) => b.timestamp - a.timestamp)
-        .slice(0, 5)
-        .map(score => (
-          <Score
-            key={score.timestamp}
-            type={score.device}
-            score={score.score}
-            time={score.timestamp}
-          />
-        ))}
+      <StyledHeading>Latest scores</StyledHeading>
+      <div>
+        {scores
+          .sort((a, b) => b.timestamp - a.timestamp)
+          .slice(0, 5)
+          .map(score => (
+            <Score
+              key={score.timestamp}
+              type={score.device}
+              score={score.score}
+              time={score.timestamp}
+            />
+          ))}
+      </div>
     </StyledScoreContainer>
   );
 };
