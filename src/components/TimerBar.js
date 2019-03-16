@@ -21,7 +21,7 @@ const TimerContainer = styled.div`
 
 const TimerBar = ({ secondsLeft }) => (
   <TimerContainer>
-    <h2>{secondsLeft}</h2>
+    <h2>{Math.round(secondsLeft / 1000)}</h2>
   </TimerContainer>
 );
 
