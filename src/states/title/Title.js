@@ -28,7 +28,7 @@ const Title = ({ startGame }) => (
         <SubHeading>Click the blue one.</SubHeading>
       </StyledPadding30Col>
       <StyledPadding30Col>
-        <Button func={startGame} buttonText={'Play'} />
+        <Button primary func={startGame} buttonText={'Play'} />
       </StyledPadding30Col>
     </StyledWhiteWrapper>
   </Centraliser>
