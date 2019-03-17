@@ -28,14 +28,9 @@ class GameScreen extends Component {
         secondsLeft: prevState.secondsLeft - 100
       }));
     } else {
-      const size = this.props.width > 600 ? 'desktop' : 'mobile';
-
-      const now = new Date();
-      const isoString = now.toISOString();
       this.props.endGame({
         timestamp: Date.now(),
-        score: this.state.score,
-        device: size
+        score: this.state.score
       });
       this.props.toggleShowFinalScore();
     }
@@ -54,7 +49,7 @@ class GameScreen extends Component {
     return (
       <>
         <TimerBar secondsLeft={this.state.secondsLeft} />
-        <GameGrid width={this.props.width} addPoint={this.addPoint} />
+        <GameGrid addPoint={this.addPoint} />
       </>
     );
   }
@@ -62,7 +57,6 @@ class GameScreen extends Component {
 
 GameScreen.propTypes = {
   endGame: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired,
   toggleShowFinalScore: PropTypes.func.isRequired
 };
 

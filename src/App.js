@@ -7,17 +7,14 @@ import Title from './states/title/Title';
 import Summary from './states/summary/Summary';
 import GameScreen from './states/GameScreen/GameScreen';
 import Countdown from './states/countdown/Countdown';
-import ScreenWidth from './components/ScreenWidth';
 
 import { theme } from './utils/theme';
 
 const StyledApp = styled.div`
-  /* font-family: 'Lato', sans-serif; */
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   color: ${props => props.theme.primaryText};
   height: 100%;
-  background: rgb(14, 131, 205);
   background: linear-gradient(
     180deg,
     rgba(14, 131, 205, 1) 0%,
@@ -121,17 +118,12 @@ class App extends PureComponent {
             )}
 
             {playing && !countingDown && (
-              <ScreenWidth>
-                {width => (
-                  <GameScreen
-                    width={width}
-                    toggleShowFinalScore={this.toggleShowFinalScore}
-                    markAsPlayed={this.markAsPlayed}
-                    addNewScore={this.addNewScore}
-                    endGame={this.endGame}
-                  />
-                )}
-              </ScreenWidth>
+              <GameScreen
+                toggleShowFinalScore={this.toggleShowFinalScore}
+                markAsPlayed={this.markAsPlayed}
+                addNewScore={this.addNewScore}
+                endGame={this.endGame}
+              />
             )}
           </Container>
         </StyledApp>

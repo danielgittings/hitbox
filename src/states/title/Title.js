@@ -14,7 +14,7 @@ import {
 const SubHeading = styled.h3`
   font-size: 2rem;
   margin: 10px 0 0;
-  color: #888;
+  color: ${props => props.theme.gray};
   font-weight: 300;
   text-align: center;
   line-height: 2.5rem;

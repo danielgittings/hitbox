@@ -6,34 +6,31 @@ import OneHundredVh from './OneHundredVh';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: ${props =>
-    props.width > 600 ? 'repeat(10, 1fr)' : 'repeat(5, 1fr)'};
+  grid-template-columns: repeat(5, 1fr);
   grid-auto-rows: auto;
   grid-template-rows: auto;
   height: calc(90vh - 170px);
   height: 100%;
   max-width: 1000px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: ${props => props.theme.white20};
   grid-gap: 10px;
   margin: 0 auto;
   padding: 30px;
   border-radius: 5px;
 
   > div {
-    /* background-color: #eeeeee; */
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: ${props => props.theme.white90};
     height: 100%;
     width: 100%;
     border-radius: 5px;
 
     &.on {
-      /* background-color: #91baf9; */
-      background-color: ${props => props.theme.button}
+      background-color: ${props => props.theme.button};
       cursor: pointer;
       transition: all 0.15s ease-in-out;
 
       &:hover {
-        background-color: #5f9efe;
+        background-color: ${props => props.theme.malibu};
         box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
       }
     }
@@ -144,7 +141,7 @@ class GameGrid extends Component {
       { id: 99, on: false },
       { id: 100, on: false }
     ],
-    numCells: null,
+    numCells: 25,
     previousCell: null
   };
 
@@ -191,20 +188,14 @@ class GameGrid extends Component {
   };
 
   componentDidMount() {
-    const cells = this.props.width > 600 ? 100 : 25;
-    this.setState(
-      {
-        numCells: cells
-      },
-      this.setNextCell
-    );
+    this.setNextCell();
   }
 
   render() {
     return (
       <>
         <OneHundredVh minus={200}>
-          <Grid width={this.props.width}>
+          <Grid>
             {this.state.grid.slice(0, this.state.numCells).map(cell => (
               <div
                 key={`GameGrid-cell-${cell.id}`}
@@ -220,8 +211,7 @@ class GameGrid extends Component {
 }
 
 GameGrid.propTypes = {
-  addPoint: PropTypes.func.isRequired,
-  width: PropTypes.number.isRequired
+  addPoint: PropTypes.func.isRequired
 };
 
 export default GameGrid;

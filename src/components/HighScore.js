@@ -2,12 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Score from './Score';
-
 const StyledScoreContainer = styled.div`
   margin: 0;
   padding: 30px 30px 20px;
-  background-color: #0b639a;
+  background-color: ${props => props.theme.veniceBlue};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +19,7 @@ const StyledHeading = styled.h3`
 
 const StyledTrophy = styled.span`
   font-size: 7rem;
-  color: white;
+  color: ${props => props.theme.white};
 `;
 
 const HighScore = ({ scores }) => {
@@ -33,7 +31,6 @@ const HighScore = ({ scores }) => {
       <StyledTrophy role="img" aria-label="Trophy">
         {top.score}
       </StyledTrophy>
-      {/* <Score type={top.device} score={top.score} time={top.timestamp} /> */}
     </StyledScoreContainer>
   );
 };
@@ -41,9 +38,8 @@ const HighScore = ({ scores }) => {
 HighScore.propTypes = {
   scores: PropTypes.arrayOf(
     PropTypes.shape({
-      device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.string.isRequired
+      timestamp: PropTypes.number.isRequired
     })
   )
 };

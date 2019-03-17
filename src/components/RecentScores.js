@@ -14,14 +14,13 @@ const StyledScoreContainer = styled.div`
 `;
 
 const StyledHeading = styled.h3`
-  color: #333;
+  color: ${props => props.theme.mineShaft};
   display: block;
-  border-bottom: 2px solid white;
   margin: 0 0 15px;
   font-size: 1.5rem;
 `;
 
-const PreviousScores = ({ scores }) => {
+const RecentScores = ({ scores }) => {
   return (
     <StyledScoreContainer>
       <StyledHeading>Latest scores</StyledHeading>
@@ -32,7 +31,6 @@ const PreviousScores = ({ scores }) => {
           .map(score => (
             <Score
               key={score.timestamp}
-              type={score.device}
               score={score.score}
               time={score.timestamp}
             />
@@ -42,14 +40,13 @@ const PreviousScores = ({ scores }) => {
   );
 };
 
-PreviousScores.propTypes = {
+RecentScores.propTypes = {
   scores: PropTypes.arrayOf(
     PropTypes.shape({
-      device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.string.isRequired
+      timestamp: PropTypes.number.isRequired
     })
   )
 };
 
-export default PreviousScores;
+export default RecentScores;
