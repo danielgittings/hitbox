@@ -11,11 +11,11 @@ const Grid = styled.div`
   grid-template-rows: auto;
   height: calc(90vh - 170px);
   height: 100%;
-  max-width: 1000px;
+  max-width: 600px;
   background-color: ${props => props.theme.white20};
   grid-gap: 10px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
   border-radius: 5px;
 
   > div {
