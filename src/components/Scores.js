@@ -41,7 +41,7 @@ const StyledBackIcon = styled(BackIcon)`
 const StyledStickyHeader = styled.div`
   position: sticky;
   top: 0;
-  background-color: white;
+  background-color: ${props => props.theme.white};
   border-radius: 5px 5px 0 0;
 `;
 

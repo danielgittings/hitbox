@@ -34,10 +34,6 @@ const HighScore = () => {
         🏆
       </StyledEmoji>
       <span>New high score!</span>
-      {/* eslint-disable-next-line  */}
-      {/* <StyledEmoji role="img" aria-label="Fire emoji">
-        🔥
-      </StyledEmoji> */}
     </StyledHighScore>
   );
 };

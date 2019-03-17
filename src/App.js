@@ -3,10 +3,10 @@ import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
 
 import Container from './components/Container';
-import Title from './states/title/Title';
-import Summary from './states/summary/Summary';
-import GameScreen from './states/GameScreen/GameScreen';
-import Countdown from './states/countdown/Countdown';
+import Title from './screens/title/Title';
+import Summary from './screens/summary/Summary';
+import GameScreen from './screens/GameScreen/GameScreen';
+import Countdown from './screens/countdown/Countdown';
 
 import { theme } from './utils/theme';
 
