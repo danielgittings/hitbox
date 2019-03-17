@@ -95,7 +95,7 @@ class Summary extends Component {
                 {!showFinalScore && (
                   <StyledHeadingWrapper>
                     <GameTitle title="HITBOX" primary={false} />
-                    <SubHeading>Click the blue one.</SubHeading>
+                    <SubHeading>Hit the blue box.</SubHeading>
                   </StyledHeadingWrapper>
                 )}
                 {showFinalScore && <FinalScore scores={scores} />}
