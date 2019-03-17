@@ -29,7 +29,7 @@ const Title = ({ startGame }) => (
   <Centraliser>
     <StyledWhiteWrapper>
       <StyledPadding30Col>
-        <GameTitle title="CLICKTANGLES" primary />
+        <GameTitle title="HITBOX" primary />
         <SubHeading>Click the blue one.</SubHeading>
       </StyledPadding30Col>
       <StyledPadding30Col>
