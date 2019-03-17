@@ -30,7 +30,7 @@ const Title = ({ startGame }) => (
     <StyledWhiteWrapper>
       <StyledPadding30Col>
         <GameTitle title="HITBOX" primary />
-        <SubHeading>Click the blue one.</SubHeading>
+        <SubHeading>Hit the blue box.</SubHeading>
       </StyledPadding30Col>
       <StyledPadding30Col>
         <Button primary func={startGame} buttonText={'Play'} />
