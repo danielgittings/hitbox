@@ -9,6 +9,8 @@ import Centraliser from '../../components/Centraliser';
 import Scores from '../../components/Scores';
 import NewHighScore from '../../components/NewHighScore';
 
+import media from '../../utils/breakpoints';
+
 import {
   StyledWhiteWrapper,
   StyledFlexColumnCenter,
@@ -16,13 +18,25 @@ import {
 } from '../../components/StyledComponents';
 
 const SubHeading = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 10px 0 0;
   color: ${props => props.theme.gray};
-  font-weight: 300;
+  font-weight: 500;
   text-align: center;
-  line-height: 2.5rem;
+
+  ${media.mdPhone`
+    font-size: 2rem;
+  `};
 `;
+
+const StyledHeadingWrapper = styled(StyledPadding30Col)`
+  padding: 30px 10px;
+
+  ${media.bigPhone`
+    padding: 30px;
+  `}
+`;
+
 class Summary extends Component {
   state = {
     isHighest: false,
@@ -79,10 +93,10 @@ class Summary extends Component {
             <StyledFlexColumnCenter>
               <div>
                 {!showFinalScore && (
-                  <StyledPadding30Col>
+                  <StyledHeadingWrapper>
                     <GameTitle title="CLICKTANGLES" primary={false} />
                     <SubHeading>Click the blue one.</SubHeading>
-                  </StyledPadding30Col>
+                  </StyledHeadingWrapper>
                 )}
                 {showFinalScore && <FinalScore scores={scores} />}
                 {showFinalScore && isHighest && <NewHighScore />}
