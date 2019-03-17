@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { formatDistance } from 'date-fns';
 
 const StyledScore = styled.div`
-  color: #333;
+  color: ${props => props.theme.mineShaft};
   margin: 10px 0;
   display: flex;
   flex-direction: column;
@@ -17,16 +17,16 @@ const StyledScore = styled.div`
 
 const StyledScoreNumber = styled.span`
   font-size: 2.5rem;
-  color: #333;
+  color: ${props => props.theme.mineShaft};
 `;
 
 const StyledTime = styled.span`
-  color: #333;
+  color: ${props => props.theme.mineShaft};
   margin: 5px 0;
   font-size: 0.95rem;
 `;
 
-const Score = ({ type, score, time }) => {
+const Score = ({ score, time }) => {
   const date = new Date(parseInt(time));
 
   const year = date.getFullYear();
@@ -50,8 +50,8 @@ const Score = ({ type, score, time }) => {
 };
 
 Score.propTypes = {
-  type: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired
+  score: PropTypes.number.isRequired,
+  time: PropTypes.number.isRequired
 };
 
 export default Score;

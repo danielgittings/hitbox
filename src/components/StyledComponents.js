@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledWhiteWrapper = styled.div`
-  background-color: white;
+  background-color: ${props => props.theme.white};
   overflow-y: auto;
   width: 100%;
   height: 100%;
@@ -12,7 +12,7 @@ export const StyledWhiteWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 ${props => props.theme.black10};
 `;
 
 export const StyledFlexColumnCenter = styled.div`

@@ -15,18 +15,10 @@ import {
   StyledPadding30Col
 } from '../../components/StyledComponents';
 
-const StyledRecentButton = styled.button`
-  background-color: yellowgreen;
-  padding: 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-`;
-
 const SubHeading = styled.h3`
   font-size: 2rem;
   margin: 10px 0 0;
-  color: #888;
+  color: ${props => props.theme.gray};
   font-weight: 300;
   text-align: center;
   line-height: 2.5rem;
@@ -99,6 +91,7 @@ class Summary extends Component {
               <StyledPadding30Col>
                 <Button
                   func={startGame}
+                  primary
                   buttonText={showFinalScore ? 'Play again' : 'Play'}
                 />
                 {!recents && scores.length > 1 && (
@@ -124,12 +117,12 @@ class Summary extends Component {
 Summary.propTypes = {
   scores: PropTypes.arrayOf(
     PropTypes.shape({
-      device: PropTypes.string.isRequired,
       score: PropTypes.number.isRequired,
-      timestamp: PropTypes.string.isRequired
+      timestamp: PropTypes.number.isRequired
     })
   ).isRequired,
-  startGame: PropTypes.func.isRequired
+  startGame: PropTypes.func.isRequired,
+  showFinalScore: PropTypes.bool.isRequired
 };
 
 export default React.memo(Summary);

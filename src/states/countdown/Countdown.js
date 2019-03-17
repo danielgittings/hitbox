@@ -6,8 +6,7 @@ import Centraliser from '../../components/Centraliser';
 const CountdownNumber = styled.p`
   font-size: 15rem;
   font-weight: 300;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.05);
-  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px ${props => props.theme.black5};
   margin: 0;
 `;
 

@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import media from '../utils/breakpoints';
 
 const MainTitle = styled.h1`
   text-align: center;
-  /* font-family: 'Lato', sans-serif; */
-  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
   margin: 0 0 0.5rem;
-  color: #333;
-  /* letter-spacing: 4.5px; */
+  color: ${props => props.theme.mineShaft};
 
   ${media.mdPhone`
     font-size: 2.1rem;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BackIcon = ({ className }) => {
   return (
@@ -13,6 +14,10 @@ const BackIcon = ({ className }) => {
       />
     </svg>
   );
+};
+
+BackIcon.propTypes = {
+  className: PropTypes.any
 };
 
 export default BackIcon;

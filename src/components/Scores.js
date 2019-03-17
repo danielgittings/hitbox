@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import HighScore from './HighScore';
@@ -27,7 +28,7 @@ const StyledBackButton = styled.button`
   align-items: center;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: ${props => props.theme.black10};
   }
 `;
 
@@ -57,6 +58,11 @@ const Scores = ({ scores, goBack }) => {
       <RecentScores scores={scores} />
     </StyledScores>
   );
+};
+
+Scores.propTypes = {
+  scores: PropTypes.array.isRequired,
+  goBack: PropTypes.func.isRequired
 };
 
 export default Scores;
