@@ -26,6 +26,7 @@ const StyledBackButton = styled.button`
   flex-direction: row:
   justify-content: center;
   align-items: center;
+  font-size: 16px;
 
   &:hover {
     background-color: ${props => props.theme.black10};
